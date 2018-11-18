@@ -2,4 +2,10 @@
 *.atsuo
 
 bootloaders/*/build/
+bootloaders/*
+!bootloaders/dopplerM4
+
+variants/*
+!variants/dopplerM4
+
 *~
