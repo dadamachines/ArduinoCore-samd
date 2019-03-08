@@ -3,9 +3,12 @@
 
 bootloaders/*/build/
 bootloaders/*
-!bootloaders/dopplerM4
+!bootloaders/automat
+!bootloaders/doppler
 
 variants/*
-!variants/dopplerM4
+!variants/automat
+!variants/automat-100
+!variants/doppler
 
 *~
