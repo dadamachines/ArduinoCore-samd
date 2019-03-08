@@ -293,4 +293,4 @@ public:
 
 
 
-#endif /* _ICECLASS_DOPPLER_ */
+#endif /* _ICECLASS_DOPPLER_M4_ */

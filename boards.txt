@@ -18,6 +18,7 @@ menu.cache=Cache
 
 
 # dadamachines automat
+# ------------------------------
 automat.name=dadamachines automat
 automat.vid.0=0x16D0
 automat.pid.0=0x0CDA
@@ -45,8 +46,45 @@ automat.build.usb_manufacturer="dadamachines"
 automat.build.usb_product="dadamachines automat"
 automat.build.usb_power=20
 
+# dadamachines doppler
+# ------------------------------
+doppler.name=dadamachines doppler
+doppler.vid.0=0x16D0
+doppler.pid.0=0x0E3B
+doppler.vid.1=0x16D0
+doppler.pid.1=0x0E3C
+doppler.upload.tool=bossac18
+doppler.upload.protocol=sam-ba
+doppler.upload.maximum_size=507904
+doppler.upload.offset=0x4000
+doppler.upload.use_1200bps_touch=true
+doppler.upload.wait_for_upload_port=true
+doppler.upload.native_usb=true
+doppler.build.mcu=cortex-m4
+doppler.build.f_cpu=120000000L
+doppler.build.usb_product="doppler"
+doppler.build.usb_manufacturer="dadamachines"
+doppler.build.usb_power=20
+doppler.build.board=doppler
+doppler.build.core=arduino
+doppler.build.extra_flags=-D__SAMD51G19A__ -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4  -mfloat-abi=hard -mfpu=fpv4-sp-d16
+doppler.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+doppler.build.openocdscript=openocd_scripts/arduino_zero.cfg
+doppler.build.variant=doppler
+doppler.build.variant_system_lib=
+doppler.build.vid=0x16D0
+doppler.build.pid=0x0E3C
+doppler.bootloader.tool=openocd
+doppler.bootloader.file=doppler/bootloader-doppler-v2.0.0-33-ge603fc3.bin
+doppler.compiler.arm.cmsis.ldflags="-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
+doppler.menu.cache.on=Enabled
+doppler.menu.cache.on.build.cache_flags=-DENABLE_CACHE
+doppler.menu.cache.off=Disabled
+doppler.menu.cache.off.build.cache_flags=
+
 # dadamachines automat-100
-automat-100.name=dadamachines automat-100
+# ------------------------------
+automat-100.name=dadamachines automat-100 [experimental]
 automat-100.vid.0=0x16D0
 automat-100.pid.0=0x0CDA
 automat-100.vid.1=0x16D0
@@ -72,40 +110,3 @@ automat-100.build.pid=0x0CDB
 automat-100.build.usb_manufacturer="dadamachines"
 automat-100.build.usb_product="dadamachines automat-100"
 automat-100.build.usb_power=20
-
-
-# dadamachines doppler
-# ------------------------------
-doppler.name=doppler
-doppler.vid.0=0x16D0
-doppler.pid.0=0x0E3B
-doppler.vid.1=0x16D0
-doppler.pid.1=0x0E3C
-doppler.upload.tool=bossac18
-doppler.upload.protocol=sam-ba
-doppler.upload.maximum_size=507904
-doppler.upload.offset=0x4000
-doppler.upload.use_1200bps_touch=true
-doppler.upload.wait_for_upload_port=true
-doppler.upload.native_usb=true
-doppler.build.mcu=cortex-m4
-doppler.build.f_cpu=120000000L
-doppler.build.usb_product="doppler"
-doppler.build.usb_manufacturer="dadamachines"
-doppler.build.usb_power=20
-doppler.build.board=doppler
-doppler.build.core=arduino
-doppler.build.extra_flags=-D__SAMD51G19A__ -Ddoppler_EXPRESS -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4 -DCRYSTALLESS -mfloat-abi=hard -mfpu=fpv4-sp-d16
-doppler.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
-doppler.build.openocdscript=openocd_scripts/arduino_zero.cfg
-doppler.build.variant=doppler
-doppler.build.variant_system_lib=
-doppler.build.vid=0x16D0
-doppler.build.pid=0x0E3C
-doppler.bootloader.tool=openocd
-doppler.bootloader.file=doppler/bootloader-doppler-v2.0.0-33-ge603fc3.bin
-doppler.compiler.arm.cmsis.ldflags="-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
-doppler.menu.cache.on=Enabled
-doppler.menu.cache.on.build.cache_flags=-DENABLE_CACHE
-doppler.menu.cache.off=Disabled
-doppler.menu.cache.off.build.cache_flags=

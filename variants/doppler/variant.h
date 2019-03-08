@@ -82,7 +82,7 @@ extern "C"
 
     /*          DOPPLER-Board-Layout:
      *                                                                                    ---------------- FPGA Pins ------------------
-     *                                                     DAC1      SCK  MOSI DAC0      LedR LedG LedB
+     *                                                     DAC1      SCK  MOSI DAC0      LedR LedG LedB       CT1            CP0
      * DIL Pin 48   47   46   45   44   43   42   41   40   39   38   37   36   35   34   33   32   31   30   29   28   27   26   25
      *       |--O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O---|
      * name  | VIN  5V  3.3V  A10  A9   A8   A7   A6   A5   A4   A3   A2   A1   A0   GND  R2   R1   R0   F14  F13  F12  F11  F10  F9   |
@@ -92,11 +92,11 @@ extern "C"
      *     | USB                           DOPPLER: SamD51 <- SPI -> icE40        |BTN:RESET|             ö  ö  ö  ö                   |
      *      |                                                                                             ö  ö  ö  ö         |BTN:S2|  |
      *       |                                                                                                                         |
-     * alt   | GND PA13 PA12 PB11 PA14 PA15 PB10 PA31 PA30  RES PA19 PA20 PA21 PA22 3.3V   11   12   13   18   19   20   21   23   25  |
+     * alt   | GND PA13 PA12 PB11 PA14 PA15 PB10 PA31 PA30  RES PA19 PA20 PA21 PA22 3.3V  11   12   13   18   19   20   21   23   25   |
      * name  | GND   0    1    2    3    4    5                   6    7    8    9  3.3V  F0   F1   F2   F3   F4   F5   F6   F7   F8   |
      *       L--O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O----O---|
      * DIL Pin  1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24
-     *             SCL  SDA   MISO           SS   SWD  SWC RES
+     *             SCL  SDA   MISO           SS   SWD  SWC RES                                 CT0                      CP0
      *             -- I2C--                       --- SWD  ---   ----- Shared  -----      ---------------- FPGA Pins ------------------
      */
 
@@ -109,7 +109,7 @@ extern "C"
 
 // FPGA internal SPI Bus
 #define ICE_CLK     21     // PB03
-#define ICE_MOSI    22    // PB23
+#define ICE_MOSI    22     // PB23
 #define ICE_MISO    23     // PB02
 #define ICE_CS      24     // PB22
 #define ICE_CDONE   25     // PA16
@@ -159,7 +159,7 @@ static const uint8_t ATN = PIN_ATN;
  * Serial interfaces
  */
 
-// Serial1 TODO: CHECK
+// Serial1
 #define PIN_SERIAL1_RX       (0ul)
 #define PIN_SERIAL1_TX       (1ul)
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
@@ -170,13 +170,13 @@ static const uint8_t ATN = PIN_ATN;
  */
 #define SPI_INTERFACES_COUNT     1
 
-#define PIN_SPI_CS           (5u)
-#define PIN_SPI_MISO         (2u)
-#define PIN_SPI_SCK          (12u)
-#define PIN_SPI_MOSI         (11u)
+#define PIN_SPI_CS           (5u)                   // PB10 sercom 4.2 ALT
+#define PIN_SPI_MISO         (2u)                   // PB11 sercom 4.3 ALT
+#define PIN_SPI_SCK          (12u)                  // PB09 sercom 4.1 ALT
+#define PIN_SPI_MOSI         (11u)                  // PB08 sercom 4.0 ALT
 #define PERIPH_SPI           sercom4
 #define PAD_SPI_TX           SPI_PAD_0_SCK_1
-#define PAD_SPI_RX           SERCOM_RX_PAD_3
+#define PAD_SPI_RX           SERCOM_RX_PAD_3        // alt
 
 static const uint8_t SS	  = PIN_A2 ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
@@ -302,4 +302,4 @@ extern Uart Serial1;
 
 
 
-#endif /* _VARIANT_DOPPLER_ */
+#endif /* _VARIANT_DOPPLER_M4_ */
