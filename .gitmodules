@@ -1,3 +1,0 @@
-[submodule "libraries/doppler-software"]
-	path = libraries/doppler-software
-	url = git@github.com:dadamachines/doppler-software.git
