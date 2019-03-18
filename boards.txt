@@ -43,7 +43,7 @@ doppler.build.openocdscript=openocd_scripts/arduino_zero.cfg
 doppler.build.variant=doppler
 doppler.build.variant_system_lib=
 doppler.build.vid=0x16D0
-doppler.build.pid=0x0E3C
+doppler.build.pid=0x0E3B
 doppler.bootloader.tool=openocd
 doppler.bootloader.file=doppler/bootloader-doppler-v2.0.0-33-ge603fc3.bin
 doppler.compiler.arm.cmsis.ldflags="-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
