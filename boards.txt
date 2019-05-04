@@ -51,3 +51,40 @@ doppler.menu.cache.on=Enabled
 doppler.menu.cache.on.build.cache_flags=-DENABLE_CACHE
 doppler.menu.cache.off=Disabled
 doppler.menu.cache.off.build.cache_flags=
+
+# dadamachines composer pro
+# ------------------------------
+composer_pro.name=dadamachines composer pro
+composer_pro.vid.0=0x16D0
+composer_pro.pid.0=0x0E3B
+composer_pro.vid.1=0x16D0
+composer_pro.pid.1=0x0E3C
+composer_pro.upload.tool=bossac18
+composer_pro.upload.protocol=sam-ba
+composer_pro.upload.maximum_size=507904
+composer_pro.upload.offset=0x4000
+composer_pro.upload.use_1200bps_touch=true
+composer_pro.upload.wait_for_upload_port=true
+composer_pro.upload.native_usb=true
+composer_pro.build.mcu=cortex-m4
+composer_pro.build.f_cpu=120000000L
+composer_pro.build.usb_product="composer pro"
+composer_pro.build.usb_manufacturer="dadamachines"
+composer_pro.build.usb_power=20
+composer_pro.build.board=composer pro
+composer_pro.build.core=arduino
+composer_pro.build.extra_flags=-D__SAMD51J19A__ -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4  -mfloat-abi=hard -mfpu=fpv4-sp-d16
+composer_pro.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+composer_pro.build.openocdscript=openocd_scripts/arduino_zero.cfg
+composer_pro.build.variant=composer pro
+composer_pro.build.variant_system_lib=
+composer_pro.build.vid=0x16D0
+composer_pro.build.pid=0x0E3B
+composer_pro.bootloader.tool=openocd
+composer_pro.bootloader.file=composer-pro/bootloader-doppler-pro.bin
+composer_pro.compiler.arm.cmsis.ldflags="-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
+composer_pro.menu.cache.on=Enabled
+composer_pro.menu.cache.on.build.cache_flags=-DENABLE_CACHE
+composer_pro.menu.cache.off=Disabled
+composer_pro.menu.cache.off.build.cache_flags=
+
