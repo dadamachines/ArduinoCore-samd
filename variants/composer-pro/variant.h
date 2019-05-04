@@ -88,48 +88,48 @@ extern "C"
 #define M_PA01      1
 #define M_PA02      2
 #define M_PA03      3
-#define M_PA04      4
-#define M_PA05      5
+#define M_PA04      4     // BUS_I2C_SDA 
+#define M_PA05      5     // BUS_I2C_SCL 
 #define M_PA06      6
 #define M_PA07      7
-#define M_PA08      8
-#define M_PA09      9
-#define M_PA10     10
-#define M_PA11     11
-#define M_PA12     12
-#define M_PA13     13
-#define M_PA14     14
-#define M_PA15     15
-#define M_PA16     16
-#define M_PA17     17
-#define M_PA18     18
-#define M_PA19     19
+#define M_PA08      8     // FLASH_SD QSPI_D0 
+#define M_PA09      9     // FLASH_SD QSPI_D1 
+#define M_PA10     10     // FLASH_SD QSPI_D2 
+#define M_PA11     11     // FLASH_SD QSPI_D3 
+#define M_PA12     12     // BUS SPI > Compute Module MOSI
+#define M_PA13     13     // BUS SPI > Compute Module SKC
+#define M_PA14     14     // BUS SPI > Compute Module CS
+#define M_PA15     15     // BUS SPI > Compute Module MISO
+#define M_PA16     16     // BUS SPI > ICE 40 MOSI 
+#define M_PA17     17     // BUS SPI > ICE 40 SCK
+#define M_PA18     18     // BUS SPI > ICE 40 CS
+#define M_PA19     19     // BUS SPI > ICE 40 MISO
 #define M_PA20     20
 #define M_PA21     21
 #define M_PA22     22
 #define M_PA23     23
-#define M_PA24     24
-#define M_PA25     25
+#define M_PA24     24     // USB_C IN DATA D_N
+#define M_PA25     25     // USB_C IN DATA D_P
 #define M_PA26     26
 #define M_PA27     27
 #define M_PA28     28
 #define M_PA29     29
-#define M_PA30     30
-#define M_PA31     31
+#define M_PA30     30     // SWCLK
+#define M_PA31     31     // SWDIO
 
 #define M_PB00     ( 0+32)
 #define M_PB01     ( 1+32)
-#define M_PB02     ( 2+32)
-#define M_PB03     ( 3+32)
-#define M_PB04     ( 4+32)
+#define M_PB02     ( 2+32)      // USB_C PD SDA
+#define M_PB03     ( 3+32)      // USB_C PD SCL
+#define M_PB04     ( 4+32)      // USB_C PD INT
 #define M_PB05     ( 5+32)
 #define M_PB06     ( 6+32)
 #define M_PB07     ( 7+32)
 #define M_PB08     ( 8+32)
 #define M_PB09     ( 9+32)
-#define M_PB10     (10+32)
-#define M_PB11     (11+32)
-#define M_PB12     (12+32)
+#define M_PB10     (10+32)      // FLASH_SD QSPI_SCK
+#define M_PB11     (11+32)      // FLASH_SD QSPI_CS
+#define M_PB12     (12+32)      // FLASH_SD QSPI_DE
 #define M_PB13     (13+32)
 #define M_PB14     (14+32)
 #define M_PB15     (15+32)
@@ -147,7 +147,7 @@ extern "C"
 #define M_PB27     (27+32)
 #define M_PB28     (28+32)
 #define M_PB29     (29+32)
-#define M_PB30     (30+32)
+#define M_PB30     (30+32)      // SWO
 #define M_PB31     (31+32)
 
 
@@ -158,52 +158,52 @@ extern "C"
 #define S_PA01     ( 1+64)
 #define S_PA02     ( 2+64)
 #define S_PA03     ( 3+64)
-#define S_PA04     ( 4+64)
-#define S_PA05     ( 5+64)
-#define S_PA06     ( 6+64)
-#define S_PA07     ( 7+64)
-#define S_PA08     ( 8+64)
-#define S_PA09     ( 9+64)
-#define S_PA10     (10+64)
-#define S_PA11     (11+64)
-#define S_PA12     (12+64)
-#define S_PA13     (13+64)
+#define S_PA04     ( 4+64)      // BUS_I2C_SDA
+#define S_PA05     ( 5+64)      // BUS_I2C_SCL
+#define S_PA06     ( 6+64)      // PA06_TOUCH     X2
+#define S_PA07     ( 7+64)      // PA07_TOUCH     X1
+#define S_PA08     ( 8+64)      // SYNC_RX
+#define S_PA09     ( 9+64)      // SYNC_TX
+#define S_PA10     (10+64)      // PA10_TOUCH     X0
+#define S_PA11     (11+64)      // PA11_TOUCH     Y13
+#define S_PA12     (12+64)      // MIDI_O RX
+#define S_PA13     (13+64)      // MIDI_O TX
 #define S_PA14     (14+64)
 #define S_PA15     (15+64)
-#define S_PA16     (16+64)
-#define S_PA17     (17+64)
-#define S_PA18     (18+64)
-#define S_PA19     (19+64)
-#define S_PA20     (20+64)
-#define S_PA21     (21+64)
-#define S_PA22     (22+64)
-#define S_PA23     (23+64)
-#define S_PA24     (24+64)
-#define S_PA25     (25+64)
+#define S_PA16     (16+64)      // SPI_OLED MOSI
+#define S_PA17     (17+64)      // SPI_OLED SCK
+#define S_PA18     (18+64)      // SPI_OLED CS
+#define S_PA19     (19+64)      // SPI_OLED MISO
+#define S_PA20     (20+64)      // PA20_TOUCH     Y8
+#define S_PA21     (21+64)      // PA21_TOUCH     Y7
+#define S_PA22     (22+64)      // I2C_2_SDA 
+#define S_PA23     (23+64)      // I2C_2_SCL 
+#define S_PA24     (24+64)      // USB_D_N
+#define S_PA25     (25+64)      // USB_D_P
 #define S_PA26     (26+64)
 #define S_PA27     (27+64)
 #define S_PA28     (28+64)
 #define S_PA29     (29+64)
-#define S_PA30     (30+64)
-#define S_PA31     (31+64)
+#define S_PA30     (30+64)      // SWCLK
+#define S_PA31     (31+64)      // SWDIO
 
-#define S_PB00     ( 0+96)
-#define S_PB01     ( 1+96)
-#define S_PB02     ( 2+96)
-#define S_PB03     ( 3+96)
-#define S_PB04     ( 4+96)
-#define S_PB05     ( 5+96)
-#define S_PB06     ( 6+96)
-#define S_PB07     ( 7+96)
-#define S_PB08     ( 8+96)
-#define S_PB09     ( 9+96)
+#define S_PB00     ( 0+96)      // PB00_TOUCH     Y6
+#define S_PB01     ( 1+96)      // PB01_TOUCH     Y5
+#define S_PB02     ( 2+96)      // MIDI_1_TX
+#define S_PB03     ( 3+96)      // MIDI_1_RX
+#define S_PB04     ( 4+96)      // PB04_TOUCH     Y4
+#define S_PB05     ( 5+96)      // PB05_TOUCH     Y3
+#define S_PB06     ( 6+96)      // PB06_TOUCH     Y2
+#define S_PB07     ( 7+96)      // PB07_TOUCH     Y1
+#define S_PB08     ( 8+96)      // PB08_TOUCH     Y0
+#define S_PB09     ( 9+96)      // TCA9555 TOUCHStrip LEDs INT Pin
 #define S_PB10     (10+96)
 #define S_PB11     (11+96)
-#define S_PB12     (12+96)
-#define S_PB13     (13+96)
-#define S_PB14     (14+96)
-#define S_PB15     (15+96)
-#define S_PB16     (16+96)
+#define S_PB12     (12+96)      // PB12_TOUCH     Y12
+#define S_PB13     (13+96)      // PB13_TOUCH     Y11
+#define S_PB14     (14+96)      // PB14_TOUCH     Y10
+#define S_PB15     (15+96)      // PB15_TOUCH     Y9
+#define S_PB16     (16+96)      // OLED_RESET
 #define S_PB17     (17+96)
 #define S_PB18     (18+96)
 #define S_PB19     (19+96)
@@ -217,7 +217,7 @@ extern "C"
 #define S_PB27     (27+96)
 #define S_PB28     (28+96)
 #define S_PB29     (29+96)
-#define S_PB30     (30+96)
+#define S_PB30     (30+96)      // SWO
 #define S_PB31     (31+96)
 
 
