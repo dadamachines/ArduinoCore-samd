@@ -27,10 +27,10 @@
  *----------------------------------------------------------------------------*/
 
 /** Frequency of the board main oscillator */
-#define VARIANT_MAINOSC   (32768ul)
+#define VARIANT_MAINOSC		(32768ul)
 
 /** Master clock frequency */
-#define VARIANT_MCK       (120000000ul)
+#define VARIANT_MCK			  (120000000ul)
 
 #define VARIANT_GCLK0_FREQ (120000000UL)
 #define VARIANT_GCLK1_FREQ (48000000UL)
@@ -57,11 +57,11 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (37u)
-#define NUM_DIGITAL_PINS     (27u)
-#define NUM_ANALOG_INPUTS    (10u)
-#define NUM_ANALOG_OUTPUTS   (1u)
-#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)
+#define PINS_COUNT           (128u)
+#define NUM_DIGITAL_PINS     (27u)      // TO DO !! set to correct value
+#define NUM_ANALOG_INPUTS    (10u)      // TO DO !! set to correct value
+#define NUM_ANALOG_OUTPUTS   (0u)       // TO DO !! set to correct value
+#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)     // TO DO !! set to correct value
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
 #define digitalPinToBitMask(P)     ( 1 << g_APinDescription[P].ulPin )
@@ -80,10 +80,10 @@ extern "C"
  */
 // #define digitalPinToTimer(P)
 
-
+    
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///// MASTER SAMD PINS //////////////////////////////////////////////////////////////////////
-
+    
 #define M_PA00      0
 #define M_PA01      1
 #define M_PA02      2
@@ -107,7 +107,7 @@ extern "C"
 #define M_PA20     20
 #define M_PA21     21
 #define M_PA22     22
-#define M_PA23     23
+#define M_PA23     23     // LED BUILTIN ????
 #define M_PA24     24     // USB_C IN DATA D_N
 #define M_PA25     25     // USB_C IN DATA D_P
 #define M_PA26     26
@@ -226,60 +226,51 @@ extern "C"
 
 
 
+// FPGA internal SPI Bus    
+
+#define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI 
+#define ICE_CLK    M_PA17   // BUS SPI > ICE 40 SCK
+#define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
+#define ICE_MISO   M_PA19   // BUS SPI > ICE 40 MISO
+//#define ICE_CDONE   25     //     ----?????
+//#define ICE_CRESET  26     //   -------????
 
 
-// LEDs
-#define PIN_LED_33          (33u)
-#define PIN_LED              PIN_LED_33
-#define LED_BUILTIN          PIN_LED_33
+//QSPI Pins
 
-// FPGA internal SPI Bus
-#define ICE_CLK     21     // PB03
-#define ICE_MOSI    22     // PB23
-#define ICE_MISO    23     // PB02
-#define ICE_CS      24     // PB22
-#define ICE_CDONE   25     // PA16
-#define ICE_CRESET  26     // PA17
+#define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK
+#define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS
+#define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0 
+#define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1 
+#define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2 
+#define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3 
+//#define M_PB12     (12+32)      // FLASH_SD QSPI_DE.    ??????
+
+#define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
+
 
 
 /*
- * Analog pins
+ * USB
  */
-#define PIN_A0               (10ul)
-#define PIN_A1               (PIN_A0 + 1)
-#define PIN_A2               (PIN_A0 + 2)
-#define PIN_A3               (PIN_A0 + 3)
-#define PIN_A4               (PIN_A0 + 4)
-#define PIN_A5               (PIN_A0 + 5)
-#define PIN_A6               (PIN_A0 + 6)
-#define PIN_A7               (PIN_A0 + 7)
-#define PIN_A8               (PIN_A0 + 8)
-#define PIN_A9               (PIN_A0 + 9)
-#define PIN_A10              (PIN_A0 + 10)
+#define PIN_USB_DM          M_PA24
+#define PIN_USB_DP          M_PA25
+//#define PIN_USB_HOST_ENABLE (27ul).   // hmm, haben wir enable pin?  +  weiteres define für slave usb
 
-#define PIN_DAC0             34
-#define PIN_DAC1             35
 
-static const uint8_t A0  = PIN_A0;
-static const uint8_t A1  = PIN_A1;
-static const uint8_t A2  = PIN_A2;
-static const uint8_t A3  = PIN_A3;
-static const uint8_t A4  = PIN_A4;
-static const uint8_t A5  = PIN_A5;
-static const uint8_t A6  = PIN_A6 ;
-static const uint8_t A7  = PIN_A7 ;
-static const uint8_t A8  = PIN_A8 ;
-static const uint8_t A9  = PIN_A9 ;
-static const uint8_t A10 = PIN_A10 ;
+// LEDs
 
-static const uint8_t DAC0 = PIN_DAC0;
-static const uint8_t DAC1 = PIN_DAC1;
+#define PIN_LED             M_PA23    //   -------???? correct?
+#define LED_BUILTIN         M_PA23
 
-#define ADC_RESOLUTION    12
 
-// Other pins
-#define PIN_ATN              (26ul)
-static const uint8_t ATN = PIN_ATN;
+
+
+
+
+
+
+
 
 /*
  * Serial interfaces
@@ -310,7 +301,7 @@ static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
 
-
+    
  /*
  * Wire Interfaces
  */
@@ -324,42 +315,76 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
+
+
+
+
+
+
 /*
- * USB
+ * Analog pins
+
+#define PIN_A0               (10ul)
+#define PIN_A1               (PIN_A0 + 1)
+#define PIN_A2               (PIN_A0 + 2)
+#define PIN_A3               (PIN_A0 + 3)
+#define PIN_A4               (PIN_A0 + 4)
+#define PIN_A5               (PIN_A0 + 5)
+#define PIN_A6               (PIN_A0 + 6)
+#define PIN_A7               (PIN_A0 + 7)
+#define PIN_A8               (PIN_A0 + 8)
+#define PIN_A9               (PIN_A0 + 9)
+#define PIN_A10              (PIN_A0 + 10)
+    
+#define PIN_DAC0             34
+#define PIN_DAC1             35
+
+
+static const uint8_t A0  = PIN_A0;
+static const uint8_t A1  = PIN_A1;
+static const uint8_t A2  = PIN_A2;
+static const uint8_t A3  = PIN_A3;
+static const uint8_t A4  = PIN_A4;
+static const uint8_t A5  = PIN_A5;
+static const uint8_t A6  = PIN_A6 ;
+static const uint8_t A7  = PIN_A7 ;
+static const uint8_t A8  = PIN_A8 ;
+static const uint8_t A9  = PIN_A9 ;
+static const uint8_t A10 = PIN_A10 ;
+
+static const uint8_t DAC0 = PIN_DAC0;
+static const uint8_t DAC1 = PIN_DAC1;
+
+#define ADC_RESOLUTION		12
+
+
+// Other pins
+#define PIN_ATN              (26ul)
+static const uint8_t ATN = PIN_ATN;
  */
-#define PIN_USB_HOST_ENABLE (27ul)
-#define PIN_USB_DM          (28ul)
-#define PIN_USB_DP          (29ul)
+
+
+
+
 
 /*
  * I2S Interfaces
  */
-#define I2S_INTERFACES_COUNT 0
-
-#define I2S_DEVICE          0
-// no I2S on G19!
-
-//QSPI Pins
-#define PIN_QSPI_SCK  (5u)
-#define PIN_QSPI_CS     (2u)
-#define PIN_QSPI_IO0  (17u)
-#define PIN_QSPI_IO1  (18u)
-#define PIN_QSPI_IO2  (19u)
-#define PIN_QSPI_IO3  (20u)
+//#define I2S_INTERFACES_COUNT 0
+//#define I2S_DEVICE          0
+//// no I2S on G19!
+//
+//
+//void dacInit();
+//void dacWrite(uint16_t  left ,uint16_t  right);
+    
 
 
-
-//TODO: meaningful value for this
-#define VARIANT_QSPI_BAUD_DEFAULT 5000000
-
-
-
-void dacInit();
-void dacWrite(uint16_t  left ,uint16_t  right);
 
 #ifdef __cplusplus
 }
 #endif
+
 
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
@@ -367,9 +392,9 @@ void dacWrite(uint16_t  left ,uint16_t  right);
 
 #ifdef __cplusplus
 
-/*  =========================
- *  ===== SERCOM DEFINITION
- *  =========================
+/*	=========================
+ *	===== SERCOM DEFINITION
+ *	=========================
 */
 extern SERCOM sercom0;
 extern SERCOM sercom1;
@@ -406,4 +431,4 @@ extern Uart Serial1;
 
 
 
-#endif /* _VARIANT_COOMPOSER_M4_ */
+#endif /* _VARIANT_COOMPOSER_PRO_ */
