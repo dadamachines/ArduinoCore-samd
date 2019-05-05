@@ -259,7 +259,7 @@ extern "C"
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////
+// ONLY AVAILABLE ON SLAVE ///////////////////////////////////////////////////////
 
 
 #define TOUCHPIN_X0  S_PA10     // PA10_TOUCH     X0
@@ -281,42 +281,45 @@ extern "C"
 #define TOUCHPIN_Y13 S_PA11     // PA11_TOUCH     Y13
 
 
+// AVIALABLE ON BOTH CHIPS ///////////////////////////////////////////////////////
+
+
+// LEDs
+
+#define PIN_LED             M_PB17      //  better leave this out?
+#define LED_BUILTIN         M_PB17
+
+#define PIN_LED_M             M_PB17    
+#define LED_BUILTIN_M         M_PB17
+#define PIN_LED_S             S_PB17    
+#define LED_BUILTIN_S         S_PB17
 
 
 
 /*
  * USB
  */
-#define PIN_USB_DM          M_PA24
+#define PIN_USB_DM          M_PA24    // better levea this out?
 #define PIN_USB_DP          M_PA25
 //#define PIN_USB_HOST_ENABLE (27ul).   // hmm, haben wir enable pin?  +  weiteres define für slave usb
 
+#define PIN_USB_DM_M          M_PA24
+#define PIN_USB_DP_S          M_PA25
 
-// LEDs
+#define PIN_USB_DM_S          S_PA24
+#define PIN_USB_DP_S          S_PA25
 
-#define PIN_LED             M_PA23    //   -------???? correct?
-#define LED_BUILTIN         M_PA23
-
-#define PIN_LED_M             M_PA23    //   -------???? correct?
-#define LED_BUILTIN_M         M_PA23
-#define PIN_LED_S             S_PA23    //   -------???? correct?
-#define LED_BUILTIN_S         S_PA23
-
-
-
-
-
-
-
+/*
+ * Wire Interfaces
+ */
 #define BUS_I2C_SDA_M   M_PA04    // BUS_I2C_SDA  MASTER
 #define BUS_I2C_SCL_M   M_PA05    // BUS_I2C_SCL  MASTER
 
 #define BUS_I2C_SDA_S   S_PA04    // BUS_I2C_SDA  MASTER
 #define BUS_I2C_SCL_S   S_PA05    // BUS_I2C_SCL  MASTER
 
- /*
- // Wire Interfaces
 
+/*
 #define WIRE_INTERFACES_COUNT 1
 
 #define PIN_WIRE_SDA         (1u)
