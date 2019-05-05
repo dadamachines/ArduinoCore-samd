@@ -225,6 +225,7 @@ extern "C"
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// ONLY AVAILABLE ON MASTER ///////
 
 // FPGA internal SPI Bus    
 
@@ -249,6 +250,8 @@ extern "C"
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
 
 
+////////////////////////////////////
+
 
 /*
  * USB
@@ -263,20 +266,36 @@ extern "C"
 #define PIN_LED             M_PA23    //   -------???? correct?
 #define LED_BUILTIN         M_PA23
 
+#define PIN_LED_M             M_PA23    //   -------???? correct?
+#define LED_BUILTIN_M         M_PA23
 #define PIN_LED_S             S_PA23    //   -------???? correct?
 #define LED_BUILTIN_S         S_PA23
 
 
 
 
+    
+ /*
+ // Wire Interfaces
+
+#define WIRE_INTERFACES_COUNT 1
+
+#define PIN_WIRE_SDA         (1u)
+#define PIN_WIRE_SCL         (0u)
+#define PERIPH_WIRE          sercom2
+#define WIRE_IT_HANDLER      SERCOM2_Handler
+
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
 
 
 
 
 
-/*
- * Serial interfaces
- */
+
+
+// Serial interfaces
+
 
 // Serial1
 #define PIN_SERIAL1_RX       (0ul)
@@ -284,9 +303,9 @@ extern "C"
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 #define PAD_SERIAL1_TX       (UART_TX_PAD_0)
 
-/*
- * SPI Interfaces
- */
+
+// SPI Interfaces
+
 #define SPI_INTERFACES_COUNT     1
 
 #define PIN_SPI_CS           (5u)                   // PB10 sercom 4.2 ALT
@@ -303,21 +322,7 @@ static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
 
-    
- /*
- * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
-
-#define PIN_WIRE_SDA         (1u)
-#define PIN_WIRE_SCL         (0u)
-#define PERIPH_WIRE          sercom2
-#define WIRE_IT_HANDLER      SERCOM2_Handler
-
-static const uint8_t SDA = PIN_WIRE_SDA;
-static const uint8_t SCL = PIN_WIRE_SCL;
-
-
 
 
 
