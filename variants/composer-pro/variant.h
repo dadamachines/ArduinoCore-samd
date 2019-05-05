@@ -58,9 +58,9 @@ extern "C"
 
 // Number of pins defined in PinDescription array
 #define PINS_COUNT           (128u)
-#define NUM_DIGITAL_PINS     (27u)      // TO DO !! set to correct value
-#define NUM_ANALOG_INPUTS    (10u)      // TO DO !! set to correct value
-#define NUM_ANALOG_OUTPUTS   (0u)       // TO DO !! set to correct value
+#define NUM_DIGITAL_PINS     (20u)      // TO DO !! set to correct value
+#define NUM_ANALOG_INPUTS    (8u)       // TO DO !! set to correct value
+#define NUM_ANALOG_OUTPUTS   (2u)       // TO DO !! set to correct value
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)     // TO DO !! set to correct value
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
@@ -235,7 +235,7 @@ extern "C"
 #define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1 
 #define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2 
 #define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3 
-//#define M_PB12     (12+32)      // FLASH_SD QSPI_DE.    ??????
+//#define PIN_QSPI_DE   M_PB12     (12+32)      // FLASH_SD QSPI_DE.    ??????
 
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
 
