@@ -225,7 +225,7 @@ extern "C"
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// ONLY AVAILABLE ON MASTER ///////
+// ONLY AVAILABLE ON MASTER ///////////////////////////////////////////////////////
 
 // FPGA internal SPI Bus    
 
@@ -237,7 +237,15 @@ extern "C"
 //#define ICE_CRESET  26     //   -------????
 
 
-//QSPI Pins
+// SPI to Compute Module Pins
+
+#define COMPUTEMODULE_SPI_MOSI_M    M_PA12          // BUS SPI > Compute Module MOSI
+#define COMPUTEMODULE_SPI_SCK_M     M_PA13          // BUS SPI > Compute Module SKC
+#define COMPUTEMODULE_SPI_CS_M      M_PA14          // BUS SPI > Compute Module CS
+#define COMPUTEMODULE_SPI_MISO_M    M_PA15          // BUS SPI > Compute Module MISO
+
+
+// QSPI Pins
 
 #define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK
 #define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS
@@ -250,7 +258,30 @@ extern "C"
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
 
 
-////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+#define TOUCHPIN_X0  S_PA10     // PA10_TOUCH     X0
+#define TOUCHPIN_X1  S_PA07     // PA07_TOUCH     X1
+#define TOUCHPIN_X2  S_PA06     // PA06_TOUCH     X2
+#define TOUCHPIN_Y0  S_PB08     // PB08_TOUCH     Y0
+#define TOUCHPIN_Y1  S_PB07     // PB07_TOUCH     Y1
+#define TOUCHPIN_Y2  S_PB06     // PB06_TOUCH     Y2
+#define TOUCHPIN_Y3  S_PB05     // PB05_TOUCH     Y3
+#define TOUCHPIN_Y4  S_PB04     // PB04_TOUCH     Y4
+#define TOUCHPIN_Y5  S_PB01     // PB01_TOUCH     Y5
+#define TOUCHPIN_Y6  S_PB00     // PB00_TOUCH     Y6
+#define TOUCHPIN_Y7  S_PA21     // PA21_TOUCH     Y7
+#define TOUCHPIN_Y8  S_PA20     // PA20_TOUCH     Y8
+#define TOUCHPIN_Y9  S_PB15     // PB15_TOUCH     Y9
+#define TOUCHPIN_Y10 S_PB14     // PB14_TOUCH     Y10
+#define TOUCHPIN_Y11 S_PB13     // PB13_TOUCH     Y11
+#define TOUCHPIN_Y12 S_PB12     // PB12_TOUCH     Y12
+#define TOUCHPIN_Y13 S_PA11     // PA11_TOUCH     Y13
+
+
+
 
 
 /*
@@ -274,7 +305,15 @@ extern "C"
 
 
 
-    
+
+
+
+#define BUS_I2C_SDA_M   M_PA04    // BUS_I2C_SDA  MASTER
+#define BUS_I2C_SCL_M   M_PA05    // BUS_I2C_SCL  MASTER
+
+#define BUS_I2C_SDA_S   S_PA04    // BUS_I2C_SDA  MASTER
+#define BUS_I2C_SCL_S   S_PA05    // BUS_I2C_SCL  MASTER
+
  /*
  // Wire Interfaces
 
