@@ -88,34 +88,34 @@ extern "C"
 #define M_PA01      1
 #define M_PA02      2
 #define M_PA03      3
-#define M_PA04      4     // BUS_I2C_SDA 
-#define M_PA05      5     // BUS_I2C_SCL 
+#define M_PA04      4           // BUS_I2C_SDA 
+#define M_PA05      5           // BUS_I2C_SCL 
 #define M_PA06      6
 #define M_PA07      7
-#define M_PA08      8     // FLASH_SD QSPI_D0 
-#define M_PA09      9     // FLASH_SD QSPI_D1 
-#define M_PA10     10     // FLASH_SD QSPI_D2 
-#define M_PA11     11     // FLASH_SD QSPI_D3 
-#define M_PA12     12     // BUS SPI > Compute Module MOSI
-#define M_PA13     13     // BUS SPI > Compute Module SKC
-#define M_PA14     14     // BUS SPI > Compute Module CS
-#define M_PA15     15     // BUS SPI > Compute Module MISO
-#define M_PA16     16     // BUS SPI > ICE 40 MOSI 
-#define M_PA17     17     // BUS SPI > ICE 40 SCK
-#define M_PA18     18     // BUS SPI > ICE 40 CS
-#define M_PA19     19     // BUS SPI > ICE 40 MISO
+#define M_PA08      8           // FLASH_SD QSPI_D0 
+#define M_PA09      9           // FLASH_SD QSPI_D1 
+#define M_PA10     10           // FLASH_SD QSPI_D2 
+#define M_PA11     11           // FLASH_SD QSPI_D3 
+#define M_PA12     12           // BUS SPI > Compute Module MOSI
+#define M_PA13     13           // BUS SPI > Compute Module SKC
+#define M_PA14     14           // BUS SPI > Compute Module CS
+#define M_PA15     15           // BUS SPI > Compute Module MISO
+#define M_PA16     16           // BUS SPI > ICE 40 MOSI 
+#define M_PA17     17           // BUS SPI > ICE 40 SCK
+#define M_PA18     18           // BUS SPI > ICE 40 CS
+#define M_PA19     19           // BUS SPI > ICE 40 MISO
 #define M_PA20     20
 #define M_PA21     21
 #define M_PA22     22
-#define M_PA23     23     // LED BUILTIN ????
-#define M_PA24     24     // USB_C IN DATA D_N
-#define M_PA25     25     // USB_C IN DATA D_P
+#define M_PA23     23           // LED BUILTIN ????
+#define M_PA24     24           // USB_C IN DATA D_N
+#define M_PA25     25           // USB_C IN DATA D_P
 #define M_PA26     26
 #define M_PA27     27
 #define M_PA28     28
 #define M_PA29     29
-#define M_PA30     30     // SWCLK
-#define M_PA31     31     // SWDIO
+#define M_PA30     30           // SWCLK
+#define M_PA31     31           // SWDIO
 
 #define M_PB00     ( 0+32)
 #define M_PB01     ( 1+32)
@@ -263,6 +263,8 @@ extern "C"
 #define PIN_LED             M_PA23    //   -------???? correct?
 #define LED_BUILTIN         M_PA23
 
+#define PIN_LED_S             S_PA23    //   -------???? correct?
+#define LED_BUILTIN_S         S_PA23
 
 
 
