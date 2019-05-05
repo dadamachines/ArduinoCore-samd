@@ -226,24 +226,7 @@ extern "C"
 
 
 // ONLY AVAILABLE ON MASTER ///////////////////////////////////////////////////////
-
-// FPGA internal SPI Bus    
-
-#define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI 
-#define ICE_CLK    M_PA17   // BUS SPI > ICE 40 SCK
-#define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
-#define ICE_MISO   M_PA19   // BUS SPI > ICE 40 MISO
-//#define ICE_CDONE   25     //     ----?????
-//#define ICE_CRESET  26     //   -------????
-
-
-// SPI to Compute Module Pins
-
-#define COMPUTEMODULE_SPI_MOSI_M    M_PA12          // BUS SPI > Compute Module MOSI
-#define COMPUTEMODULE_SPI_SCK_M     M_PA13          // BUS SPI > Compute Module SKC
-#define COMPUTEMODULE_SPI_CS_M      M_PA14          // BUS SPI > Compute Module CS
-#define COMPUTEMODULE_SPI_MISO_M    M_PA15          // BUS SPI > Compute Module MISO
-
+//////////////////////////////////////////////////////////////////////////////////
 
 // QSPI Pins
 
@@ -259,8 +242,63 @@ extern "C"
 
 
 
-// ONLY AVAILABLE ON SLAVE ///////////////////////////////////////////////////////
+// SPI to Compute Module Pins
 
+#define COMPUTEMODULE_SPI_MOSI_M    M_PA12          // BUS SPI > Compute Module MOSI
+#define COMPUTEMODULE_SPI_SCK_M     M_PA13          // BUS SPI > Compute Module SKC
+#define COMPUTEMODULE_SPI_CS_M      M_PA14          // BUS SPI > Compute Module CS
+#define COMPUTEMODULE_SPI_MISO_M    M_PA15          // BUS SPI > Compute Module MISO
+
+
+// FPGA internal SPI Bus    
+
+#define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI 
+#define ICE_CLK    M_PA17   // BUS SPI > ICE 40 SCK
+#define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
+#define ICE_MISO   M_PA19   // BUS SPI > ICE 40 MISO
+#define ICE_CDONE  M_PB08   // BUS SPI > ICE 40 CDONE
+#define ICE_CRESET M_PB09   // BUS SPI > ICE 40 CRESET
+
+
+// WS28 RGB LEDs
+
+#define WS28_PIN    M_PA07      // WS28 RGB LEDs
+
+
+// SLAVE PROGRAMMER (from Master SAMD)
+
+#define RESET_SLAVE_SAMD_M   M_PA27     // RESET SLAVE SAMD 
+#define SWDIO_SLAVE_SAMD_M   M_PB22     // SWDIO from SLAVE SAMD
+#define SWCLK_SLAVE_SAMD_M   M_PB23     // SWCLK from SLAVE SAMD
+
+
+// FOOTSWITCH PINS
+
+#define FOOTSWITCH_1 M_PB06     // FOOTSWITCH 1
+#define FOOTSWITCH_2 M_PB07     // FOOTSWITCH 2
+
+
+
+// ONLY AVAILABLE ON SLAVE ///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+// ANANLOG MIDI I/O
+
+#define MIDI_1_RX  S_PA12       // MIDI_O RX
+#define MIDI_1_TX  S_PA13       // MIDI_O TX
+#define MIDI_2_RX  S_PB03       // MIDI_1_RX
+#define MIDI_2_TX  S_PB02       // MIDI_1_TX
+
+
+// ANANLOG SYNC I/O
+
+#define SYNC_IN_1   S_PA08      // SYNC_IN_1
+#define SYNC_IN_2   S_PA09      // SYNC_IN_2
+#define SYNC_OUT_1  S_PB22      // SYNC_OUT_1
+#define SYNC_OUT_2  S_PB23      // SYNC_OUT_2
+
+
+// TOUCHSTRIP TOUCH PINS
 
 #define TOUCHPIN_X0  S_PA10     // PA10_TOUCH     X0
 #define TOUCHPIN_X1  S_PA07     // PA07_TOUCH     X1
@@ -281,8 +319,17 @@ extern "C"
 #define TOUCHPIN_Y13 S_PA11     // PA11_TOUCH     Y13
 
 
-// AVIALABLE ON BOTH CHIPS ///////////////////////////////////////////////////////
+#define OLED_SPI_DC     S_PA15  // OLED DISPLAY D/C
+#define OLED_SPI_MOSI   S_PA16  // SPI_OLED MOSI
+#define OLED_SPI_SCK    S_PA17  // SPI_OLED SCK
+#define OLED_SPI_CS     S_PA18  // SPI_OLED CS
+#define OLED_SPI_MISO   S_PA19  // SPI_OLED MISO
+#define OLED_SPI_RESET  S_PB16  // OLED_RESET
 
+
+
+// AVIALABLE ON BOTH CHIPS ///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 
 // LEDs
 
