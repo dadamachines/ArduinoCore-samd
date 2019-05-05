@@ -88,8 +88,8 @@ extern "C"
 #define M_PA01      1
 #define M_PA02      2
 #define M_PA03      3           // AREF
-#define M_PA04      4           // BUS_I2C_SDA 
-#define M_PA05      5           // BUS_I2C_SCL 
+#define M_PA04      4           // BUS_I2C_1_SDA 
+#define M_PA05      5           // BUS_I2C_1_SCL 
 #define M_PA06      6
 #define M_PA07      7           // WS28 RGB LEDs
 #define M_PA08      8           // FLASH_SD QSPI_D0 
@@ -118,9 +118,9 @@ extern "C"
 #define M_PA31     31           // SWDIO
 
 #define M_PB00     ( 0+32)
-#define M_PB01     ( 1+32)      // USB_C PD INT
-#define M_PB02     ( 2+32)      // USB_C PD SDA
-#define M_PB03     ( 3+32)      // USB_C PD SCL
+#define M_PB01     ( 1+32)      // BUS_I2C_2_INT  USB_C PD + MatrixTCA955
+#define M_PB02     ( 2+32)      // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
+#define M_PB03     ( 3+32)      // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
 #define M_PB04     ( 4+32)
 #define M_PB05     ( 5+32)
 #define M_PB06     ( 6+32)      // FOOTSWITCH 1
@@ -158,8 +158,8 @@ extern "C"
 #define S_PA01     ( 1+64)
 #define S_PA02     ( 2+64)      // DAC OUT
 #define S_PA03     ( 3+64)      // AREF
-#define S_PA04     ( 4+64)      // BUS_I2C_SDA
-#define S_PA05     ( 5+64)      // BUS_I2C_SCL
+#define S_PA04     ( 4+64)      // BUS_I2C_1_SDA
+#define S_PA05     ( 5+64)      // BUS_I2C_1_SCL
 #define S_PA06     ( 6+64)      // PA06_TOUCH     X2
 #define S_PA07     ( 7+64)      // PA07_TOUCH     X1
 #define S_PA08     ( 8+64)      // SYNC_IN_1
@@ -196,7 +196,7 @@ extern "C"
 #define S_PB06     ( 6+96)      // PB06_TOUCH     Y2
 #define S_PB07     ( 7+96)      // PB07_TOUCH     Y1
 #define S_PB08     ( 8+96)      // PB08_TOUCH     Y0
-#define S_PB09     ( 9+96)      // TCA9555 TOUCHStrip LEDs INT Pin
+#define S_PB09     ( 9+96)      // TCA9555 TOUCHStrip LEDs INT Pin --> NOT NEEDED
 #define S_PB10     (10+96)
 #define S_PB11     (11+96)
 #define S_PB12     (12+96)      // PB12_TOUCH     Y12
@@ -229,7 +229,6 @@ extern "C"
 //////////////////////////////////////////////////////////////////////////////////
 
 // QSPI Pins
-
 #define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK
 #define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS
 #define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0 
@@ -241,9 +240,7 @@ extern "C"
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
 
 
-
 // SPI to Compute Module Pins
-
 #define COMPUTEMODULE_SPI_MOSI_M    M_PA12          // BUS SPI > Compute Module MOSI
 #define COMPUTEMODULE_SPI_SCK_M     M_PA13          // BUS SPI > Compute Module SKC
 #define COMPUTEMODULE_SPI_CS_M      M_PA14          // BUS SPI > Compute Module CS
@@ -251,7 +248,6 @@ extern "C"
 
 
 // FPGA internal SPI Bus    
-
 #define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI 
 #define ICE_CLK    M_PA17   // BUS SPI > ICE 40 SCK
 #define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
@@ -261,21 +257,29 @@ extern "C"
 
 
 // WS28 RGB LEDs
-
 #define WS28_PIN    M_PA07      // WS28 RGB LEDs
 
 
 // SLAVE PROGRAMMER (from Master SAMD)
-
 #define RESET_SLAVE_SAMD_M   M_PA27     // RESET SLAVE SAMD 
 #define SWDIO_SLAVE_SAMD_M   M_PB22     // SWDIO from SLAVE SAMD
 #define SWCLK_SLAVE_SAMD_M   M_PB23     // SWCLK from SLAVE SAMD
 
 
 // FOOTSWITCH PINS
+#define FOOTSWITCH_1  M_PB06     // FOOTSWITCH 1
+#define FOOTSWITCH_2  M_PB07     // FOOTSWITCH 2
 
-#define FOOTSWITCH_1 M_PB06     // FOOTSWITCH 1
-#define FOOTSWITCH_2 M_PB07     // FOOTSWITCH 2
+// Wire 1 
+#define BUS_I2C_1_SDA_M   M_PA04    // BUS_I2C_1_SDA  MASTER
+#define BUS_I2C_1_SCL_M   M_PA05    // BUS_I2C_1_SCL  MASTER
+
+
+// BUS_I2C_2 to TCA9555 on MatrixPCB and Power Distribution Chip for USB C
+#define BUS_I2C_2_SDA_M   M_PB02     // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
+#define BUS_I2C_2_SCL_M   M_PB03     // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
+#define BUS_I2C_2_INT_M   M_PB01     // BUS_I2C_2_INT  USB_C PD + MatrixTCA955
+
 
 
 
@@ -283,42 +287,40 @@ extern "C"
 //////////////////////////////////////////////////////////////////////////////////
 
 // ANANLOG MIDI I/O
-
-#define MIDI_1_RX  S_PA12       // MIDI_O RX
-#define MIDI_1_TX  S_PA13       // MIDI_O TX
-#define MIDI_2_RX  S_PB03       // MIDI_1_RX
-#define MIDI_2_TX  S_PB02       // MIDI_1_TX
+#define MIDI_1_RX       S_PA12       // MIDI_O RX
+#define MIDI_1_TX       S_PA13       // MIDI_O TX
+#define MIDI_2_RX       S_PB03       // MIDI_1_RX
+#define MIDI_2_TX       S_PB02       // MIDI_1_TX
 
 
 // ANANLOG SYNC I/O
-
-#define SYNC_IN_1   S_PA08      // SYNC_IN_1
-#define SYNC_IN_2   S_PA09      // SYNC_IN_2
-#define SYNC_OUT_1  S_PB22      // SYNC_OUT_1
-#define SYNC_OUT_2  S_PB23      // SYNC_OUT_2
+#define SYNC_IN_1       S_PA08      // SYNC_IN_1
+#define SYNC_IN_2       S_PA09      // SYNC_IN_2
+#define SYNC_OUT_1      S_PB22      // SYNC_OUT_1
+#define SYNC_OUT_2      S_PB23      // SYNC_OUT_2
 
 
 // TOUCHSTRIP TOUCH PINS
+#define TOUCHPIN_X0     S_PA10     // PA10_TOUCH     X0
+#define TOUCHPIN_X1     S_PA07     // PA07_TOUCH     X1
+#define TOUCHPIN_X2     S_PA06     // PA06_TOUCH     X2
+#define TOUCHPIN_Y0     S_PB08     // PB08_TOUCH     Y0
+#define TOUCHPIN_Y1     S_PB07     // PB07_TOUCH     Y1
+#define TOUCHPIN_Y2     S_PB06     // PB06_TOUCH     Y2
+#define TOUCHPIN_Y3     S_PB05     // PB05_TOUCH     Y3
+#define TOUCHPIN_Y4     S_PB04     // PB04_TOUCH     Y4
+#define TOUCHPIN_Y5     S_PB01     // PB01_TOUCH     Y5
+#define TOUCHPIN_Y6     S_PB00     // PB00_TOUCH     Y6
+#define TOUCHPIN_Y7     S_PA21     // PA21_TOUCH     Y7
+#define TOUCHPIN_Y8     S_PA20     // PA20_TOUCH     Y8
+#define TOUCHPIN_Y9     S_PB15     // PB15_TOUCH     Y9
+#define TOUCHPIN_Y10    S_PB14     // PB14_TOUCH     Y10
+#define TOUCHPIN_Y11    S_PB13     // PB13_TOUCH     Y11
+#define TOUCHPIN_Y12    S_PB12     // PB12_TOUCH     Y12
+#define TOUCHPIN_Y13    S_PA11     // PA11_TOUCH     Y13
 
-#define TOUCHPIN_X0  S_PA10     // PA10_TOUCH     X0
-#define TOUCHPIN_X1  S_PA07     // PA07_TOUCH     X1
-#define TOUCHPIN_X2  S_PA06     // PA06_TOUCH     X2
-#define TOUCHPIN_Y0  S_PB08     // PB08_TOUCH     Y0
-#define TOUCHPIN_Y1  S_PB07     // PB07_TOUCH     Y1
-#define TOUCHPIN_Y2  S_PB06     // PB06_TOUCH     Y2
-#define TOUCHPIN_Y3  S_PB05     // PB05_TOUCH     Y3
-#define TOUCHPIN_Y4  S_PB04     // PB04_TOUCH     Y4
-#define TOUCHPIN_Y5  S_PB01     // PB01_TOUCH     Y5
-#define TOUCHPIN_Y6  S_PB00     // PB00_TOUCH     Y6
-#define TOUCHPIN_Y7  S_PA21     // PA21_TOUCH     Y7
-#define TOUCHPIN_Y8  S_PA20     // PA20_TOUCH     Y8
-#define TOUCHPIN_Y9  S_PB15     // PB15_TOUCH     Y9
-#define TOUCHPIN_Y10 S_PB14     // PB14_TOUCH     Y10
-#define TOUCHPIN_Y11 S_PB13     // PB13_TOUCH     Y11
-#define TOUCHPIN_Y12 S_PB12     // PB12_TOUCH     Y12
-#define TOUCHPIN_Y13 S_PA11     // PA11_TOUCH     Y13
 
-
+// OLED SPI BUS
 #define OLED_SPI_DC     S_PA15  // OLED DISPLAY D/C
 #define OLED_SPI_MOSI   S_PA16  // SPI_OLED MOSI
 #define OLED_SPI_SCK    S_PA17  // SPI_OLED SCK
@@ -327,43 +329,50 @@ extern "C"
 #define OLED_SPI_RESET  S_PB16  // OLED_RESET
 
 
+// Wire 1
+#define BUS_I2C_1_SDA_S   S_PA04    // BUS_I2C_1_SDA  Slave
+#define BUS_I2C_1_SCL_S   S_PA05    // BUS_I2C_1_SCL  Slave
+
+#define BUS_I2C_2_SDA_S   S_PA22    // I2C_2_SDA    to Touchstrip TCA9555
+#define BUS_I2C_2_SCL_S   S_PA23    // I2C_2_SCL    to Touchstrip TCA9555
+#define BUS_I2C_2_INT_S   S_PB09    // TCA9555 TOUCHStrip LEDs INT Pin. NOT NEEDED
+
+
 
 // AVIALABLE ON BOTH CHIPS ///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
 // LEDs
 
-#define PIN_LED             M_PB17      //  better leave this out?
-#define LED_BUILTIN         M_PB17
+#define PIN_LED           M_PB17      //  better leave this out?
+#define LED_BUILTIN       M_PB17
 
-#define PIN_LED_M             M_PB17    
-#define LED_BUILTIN_M         M_PB17
-#define PIN_LED_S             S_PB17    
-#define LED_BUILTIN_S         S_PB17
+#define PIN_LED_M         M_PB17    
+#define LED_BUILTIN_M     M_PB17
+#define PIN_LED_S         S_PB17    
+#define LED_BUILTIN_S     S_PB17
 
 
 
 /*
  * USB
  */
-#define PIN_USB_DM          M_PA24    // better levea this out?
-#define PIN_USB_DP          M_PA25
+#define PIN_USB_DM        M_PA24    // better levea this out?
+#define PIN_USB_DP        M_PA25
 //#define PIN_USB_HOST_ENABLE (27ul).   // hmm, haben wir enable pin?  +  weiteres define für slave usb
 
-#define PIN_USB_DM_M          M_PA24
-#define PIN_USB_DP_S          M_PA25
+#define PIN_USB_DM_M      M_PA24
+#define PIN_USB_DP_S      M_PA25
 
-#define PIN_USB_DM_S          S_PA24
-#define PIN_USB_DP_S          S_PA25
+#define PIN_USB_DM_S      S_PA24
+#define PIN_USB_DP_S      S_PA25
 
 /*
  * Wire Interfaces
  */
-#define BUS_I2C_SDA_M   M_PA04    // BUS_I2C_SDA  MASTER
-#define BUS_I2C_SCL_M   M_PA05    // BUS_I2C_SCL  MASTER
 
-#define BUS_I2C_SDA_S   S_PA04    // BUS_I2C_SDA  MASTER
-#define BUS_I2C_SCL_S   S_PA05    // BUS_I2C_SCL  MASTER
+
+
 
 
 /*
