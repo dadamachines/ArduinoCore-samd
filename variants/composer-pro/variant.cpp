@@ -30,12 +30,13 @@ const PinDescription g_APinDescription[]=
     // MASTER SAM PORT A
     { PORTA,   0, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0 },     // --- (Quartz)
     { PORTA,   1, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 },     // --- (Quartz)
-    { PORTA,   2, PIO_ANALOG, PIN_ATTR_ANALOG, DAC_Channel0, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },            // --- (DAC OUT)
-    { PORTA,   3, PIO_ANALOG,  PIN_ATTR_ANALOG,  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },        // AREF
+    { PORTA,   2, PIO_ANALOG,     PIN_ATTR_ANALOG, DAC_Channel0, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },            // --- (DAC OUT)
+    { PORTA,   3, PIO_ANALOG,     PIN_ATTR_ANALOG,  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },        // AREF
     { PORTA,   4, PIO_SERCOM_ALT,         EXTERNAL_INT_4 },        // BUS_I2C_SDA    /SERCOM_ALT_0_P0
     { PORTA,   5, PIO_SERCOM_ALT,         EXTERNAL_INT_5 },        // BUS_I2C_SCL    /SERCOM_ALT_0_P1
     { PORTA,   6, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6 },        // ---
-    { PORTA,   7, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7 },        // WS28 RGB LEDs.  ---> enable PWM ???
+    { PORTA,   7, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7 },        // WS28 RGB LEDs.  ---> enable PWM ???
+
 
     { PORTA,   8, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },       // FLASH_SD QSPI_D0   /SERCOM_ALT
     { PORTA,   9, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9  },        // FLASH_SD QSPI_D1   /SERCOM_ALT
@@ -47,6 +48,7 @@ const PinDescription g_APinDescription[]=
  //   { PORTA,  9, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel9, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9 },              // FLASH_SD QSPI_D1   /SERCOM_ALT
  //   { PORTA, 10, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel10, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10 },            // FLASH_SD QSPI_D2   /SERCOM_ALT
  //   { PORTA, 11, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel11, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 },            // FLASH_SD QSPI_D2   /SERCOM_ALT
+
 
     { PORTA,  12, PIO_SERCOM_ALT,        },        // BUS SPI > Compute Module MOSI     /SERCOM_2_P0 /SERCOM_ALT_4_P1
     { PORTA,  13, PIO_SERCOM_ALT,        },        // BUS SPI > Compute Module SKC      /SERCOM_2_P1 /SERCOM_ALT_4_P0
@@ -80,8 +82,8 @@ const PinDescription g_APinDescription[]=
     { PORTB,   7, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_7  },     // FOOTSWITCH 2
     { PORTB,   8, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_8  },     // BUS SPI > ICE 40 CDONE
     { PORTB,   9, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_9  },     // BUS SPI > ICE 40 CRESET
-    { PORTB,  10, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10 },        // FLASH_SD QSPI_SCK
-    { PORTB,  11, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 },        // FLASH_SD QSPI_CS
+    { PORTB,  10, PIO_COM,     PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10 },        // FLASH_SD QSPI_SCK
+    { PORTB,  11, PIO_COM,     PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 },        // FLASH_SD QSPI_CS
     { PORTB,  12, PIO_DIGITAL,         EXTERNAL_INT_12 },        // FLASH_SD QSPI_DE
     { PORTB,  13, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 },        // ---
     { PORTB,  14, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 },        // ---
@@ -100,7 +102,7 @@ const PinDescription g_APinDescription[]=
     { PORTB,  27, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 },        // ---
     { PORTB,  28, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 },        // ---
     { PORTB,  29, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },        // ---
-    { PORTB,  30, PIO_DIGITAL,                                              },        // SWO
+    { PORTB,  30, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE},        // SWO
     { PORTB,  31, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },        // ---
 
 
@@ -138,8 +140,8 @@ const PinDescription g_APinDescription[]=
     { PORTA,  27, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 },          // ---
     { PORTA,  28, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },        // ---
     { PORTA,  29, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },        // ---
-    { PORTA,  30, PIO_DIGITAL,        EXTERNAL_INT_14 },        // SWCLK
-    { PORTA,  31, PIO_DIGITAL,        EXTERNAL_INT_15 },        // SWDIO
+    { PORTA,  30, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 },        // SWCLK
+    { PORTA,  31, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },        // SWDIO
 
     // SLAVE SAM PORT B
     { PORTB,   0, PIO_DIGITAL,         EXTERNAL_INT_0 },        // PB00_TOUCH
@@ -172,7 +174,7 @@ const PinDescription g_APinDescription[]=
     { PORTB,  27, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_13 },        // ---
     { PORTB,  28, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 },        // ---
     { PORTB,  29, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },        // ---
-    { PORTB,  30, PIO_DIGITAL,        EXTERNAL_INT_14 },        // SWO
+    { PORTB,  30, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_14 },        // SWO
     { PORTB,  31, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_15 },        // ---
 
 /////////////////////////////////////////////////////////////////////////////////////////////
