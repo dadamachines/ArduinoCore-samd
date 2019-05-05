@@ -87,11 +87,11 @@ extern "C"
 #define M_PA00      0
 #define M_PA01      1
 #define M_PA02      2
-#define M_PA03      3
+#define M_PA03      3           // AREF
 #define M_PA04      4           // BUS_I2C_SDA 
 #define M_PA05      5           // BUS_I2C_SCL 
 #define M_PA06      6
-#define M_PA07      7
+#define M_PA07      7           // WS28 RGB LEDs
 #define M_PA08      8           // FLASH_SD QSPI_D0 
 #define M_PA09      9           // FLASH_SD QSPI_D1 
 #define M_PA10     10           // FLASH_SD QSPI_D2 
@@ -107,26 +107,26 @@ extern "C"
 #define M_PA20     20
 #define M_PA21     21
 #define M_PA22     22
-#define M_PA23     23           // LED BUILTIN ????
+#define M_PA23     23           
 #define M_PA24     24           // USB_C IN DATA D_N
 #define M_PA25     25           // USB_C IN DATA D_P
 #define M_PA26     26
-#define M_PA27     27
+#define M_PA27     27           // RESET SLAVE SAMD 
 #define M_PA28     28
 #define M_PA29     29
 #define M_PA30     30           // SWCLK
 #define M_PA31     31           // SWDIO
 
 #define M_PB00     ( 0+32)
-#define M_PB01     ( 1+32)
+#define M_PB01     ( 1+32)      // USB_C PD INT
 #define M_PB02     ( 2+32)      // USB_C PD SDA
 #define M_PB03     ( 3+32)      // USB_C PD SCL
-#define M_PB04     ( 4+32)      // USB_C PD INT
+#define M_PB04     ( 4+32)
 #define M_PB05     ( 5+32)
-#define M_PB06     ( 6+32)
-#define M_PB07     ( 7+32)
-#define M_PB08     ( 8+32)
-#define M_PB09     ( 9+32)
+#define M_PB06     ( 6+32)      // FOOTSWITCH 1
+#define M_PB07     ( 7+32)      // FOOTSWITCH 2
+#define M_PB08     ( 8+32)      // BUS SPI > ICE 40 CDONE
+#define M_PB09     ( 9+32)      // BUS SPI > ICE 40 CRESET
 #define M_PB10     (10+32)      // FLASH_SD QSPI_SCK
 #define M_PB11     (11+32)      // FLASH_SD QSPI_CS
 #define M_PB12     (12+32)      // FLASH_SD QSPI_DE
@@ -134,13 +134,13 @@ extern "C"
 #define M_PB14     (14+32)
 #define M_PB15     (15+32)
 #define M_PB16     (16+32)
-#define M_PB17     (17+32)
+#define M_PB17     (17+32)      // BUILTIN LED
 #define M_PB18     (18+32)
 #define M_PB19     (19+32)
 #define M_PB20     (20+32)
 #define M_PB21     (21+32)
-#define M_PB22     (22+32)
-#define M_PB23     (23+32)
+#define M_PB22     (22+32)      // SWDIO from SLAVE SAMD
+#define M_PB23     (23+32)      // SWCLK from SLAVE SAMD
 #define M_PB24     (24+32)
 #define M_PB25     (25+32)
 #define M_PB26     (26+32)
@@ -156,20 +156,20 @@ extern "C"
 
 #define S_PA00     ( 0+64)
 #define S_PA01     ( 1+64)
-#define S_PA02     ( 2+64)
-#define S_PA03     ( 3+64)
+#define S_PA02     ( 2+64)      // DAC OUT
+#define S_PA03     ( 3+64)      // AREF
 #define S_PA04     ( 4+64)      // BUS_I2C_SDA
 #define S_PA05     ( 5+64)      // BUS_I2C_SCL
 #define S_PA06     ( 6+64)      // PA06_TOUCH     X2
 #define S_PA07     ( 7+64)      // PA07_TOUCH     X1
-#define S_PA08     ( 8+64)      // SYNC_RX
-#define S_PA09     ( 9+64)      // SYNC_TX
+#define S_PA08     ( 8+64)      // SYNC_IN_1
+#define S_PA09     ( 9+64)      // SYNC_IN_2
 #define S_PA10     (10+64)      // PA10_TOUCH     X0
 #define S_PA11     (11+64)      // PA11_TOUCH     Y13
 #define S_PA12     (12+64)      // MIDI_O RX
 #define S_PA13     (13+64)      // MIDI_O TX
 #define S_PA14     (14+64)
-#define S_PA15     (15+64)
+#define S_PA15     (15+64)      // OLED DISPLAY D/C
 #define S_PA16     (16+64)      // SPI_OLED MOSI
 #define S_PA17     (17+64)      // SPI_OLED SCK
 #define S_PA18     (18+64)      // SPI_OLED CS
@@ -204,13 +204,13 @@ extern "C"
 #define S_PB14     (14+96)      // PB14_TOUCH     Y10
 #define S_PB15     (15+96)      // PB15_TOUCH     Y9
 #define S_PB16     (16+96)      // OLED_RESET
-#define S_PB17     (17+96)
+#define S_PB17     (17+96)      // BUILTIN LED
 #define S_PB18     (18+96)
 #define S_PB19     (19+96)
 #define S_PB20     (20+96)
 #define S_PB21     (21+96)
-#define S_PB22     (22+96)
-#define S_PB23     (23+96)
+#define S_PB22     (22+96)      // SYNC_OUT_1
+#define S_PB23     (23+96)      // SYNC_OUT_2
 #define S_PB24     (24+96)
 #define S_PB25     (25+96)
 #define S_PB26     (26+96)
