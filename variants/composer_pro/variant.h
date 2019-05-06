@@ -126,7 +126,7 @@ extern "C"
 #define M_PB06     ( 6+32)      // FOOTSWITCH 1
 #define M_PB07     ( 7+32)      // FOOTSWITCH 2
 #define M_PB08     ( 8+32)      // BUS SPI > ICE 40 CDONE
-#define M_PB09     ( 9+32)      // BUS SPI > ICE 40 CRESET
+#define M_PB09     ( 9+32)      // BUS SPI > ICE 40 RESET
 #define M_PB10     (10+32)      // FLASH_SD QSPI_SCK
 #define M_PB11     (11+32)      // FLASH_SD QSPI_CS
 #define M_PB12     (12+32)      // FLASH_SD QSPI_DE
@@ -253,7 +253,8 @@ extern "C"
 #define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
 #define ICE_MISO   M_PA19   // BUS SPI > ICE 40 MISO
 #define ICE_CDONE  M_PB08   // BUS SPI > ICE 40 CDONE
-#define ICE_CRESET M_PB09   // BUS SPI > ICE 40 CRESET
+#define ICE_RESET  M_PB09   // BUS SPI > ICE 40 RESET
+#define ICE_CRESET  M_PB09   // BUS SPI > ICE 40 ICE_RESET. for compatibility with doppler sketches where it is called CRESET
 
 
 // WS28 RGB LEDs
@@ -279,7 +280,6 @@ extern "C"
 #define BUS_I2C_2_SDA_M   M_PB02     // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
 #define BUS_I2C_2_SCL_M   M_PB03     // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
 #define BUS_I2C_2_INT_M   M_PB01     // BUS_I2C_2_INT  USB_C PD + MatrixTCA955
-
 
 
 
@@ -367,21 +367,18 @@ extern "C"
 #define PIN_USB_DM_S      S_PA24
 #define PIN_USB_DP_S      S_PA25
 
-/*
+
+
+
+ /*
  * Wire Interfaces
  */
-
-
-
-
-
-/*
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (1u)
-#define PIN_WIRE_SCL         (0u)
-#define PERIPH_WIRE          sercom2
-#define WIRE_IT_HANDLER      SERCOM2_Handler
+#define PIN_WIRE_SDA         M_PA04 
+#define PIN_WIRE_SCL         M_PA05
+#define PERIPH_WIRE          sercom0
+#define WIRE_IT_HANDLER      SERCOM0_Handler
 
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
@@ -390,8 +387,27 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 
 
 
+// SPI Interfaces
+
+#define SPI_INTERFACES_COUNT     1
+
+#define PIN_SPI_CS           M_PA18                   
+#define PIN_SPI_MISO         M_PA19                  
+#define PIN_SPI_SCK          M_PA17                  
+#define PIN_SPI_MOSI         M_PA16                  
+#define PERIPH_SPI           sercom1
+
+#define PAD_SPI_TX           SPI_PAD_0_SCK_1    // not sure if correct
+#define PAD_SPI_RX           SERCOM_RX_PAD_3        // not sure if correct
+
+static const uint8_t SS   = M_PA18 ;                  // not sure if correct
+static const uint8_t MOSI = PIN_SPI_MOSI ;
+static const uint8_t MISO = PIN_SPI_MISO ;
+static const uint8_t SCK  = PIN_SPI_SCK ;
 
 
+
+/*
 // Serial interfaces
 
 
@@ -400,25 +416,6 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PIN_SERIAL1_TX       (1ul)
 #define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
 #define PAD_SERIAL1_TX       (UART_TX_PAD_0)
-
-
-// SPI Interfaces
-
-#define SPI_INTERFACES_COUNT     1
-
-#define PIN_SPI_CS           (5u)                   // PB10 sercom 4.2 ALT
-#define PIN_SPI_MISO         (2u)                   // PB11 sercom 4.3 ALT
-#define PIN_SPI_SCK          (12u)                  // PB09 sercom 4.1 ALT
-#define PIN_SPI_MOSI         (11u)                  // PB08 sercom 4.0 ALT
-#define PERIPH_SPI           sercom4
-#define PAD_SPI_TX           SPI_PAD_0_SCK_1
-#define PAD_SPI_RX           SERCOM_RX_PAD_3        // alt
-
-static const uint8_t SS   = PIN_A2 ;
-static const uint8_t MOSI = PIN_SPI_MOSI ;
-static const uint8_t MISO = PIN_SPI_MISO ;
-static const uint8_t SCK  = PIN_SPI_SCK ;
-
 
  */
 
