@@ -358,8 +358,8 @@ extern "C"
 /*
  * USB
  */
-#define PIN_USB_DM        M_PA24    // better levea this out?
-#define PIN_USB_DP        M_PA25
+#define PIN_USB_DM          M_PA24    // better levea this out?
+#define PIN_USB_DP          M_PA25
 #define PIN_USB_HOST_ENABLE (M_PA28)  // hmm, wir haben keinen ENABLE PIN!?  habe M_PA28 als Dummy genommen
 
 #define PIN_USB_DM_M      M_PA24
@@ -398,7 +398,7 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PIN_SPI_MOSI         M_PA16                  
 #define PERIPH_SPI           sercom1
 
-#define PAD_SPI_TX           SPI_PAD_0_SCK_1    // not sure if correct
+#define PAD_SPI_TX           SPI_PAD_0_SCK_1     // not sure if correct
 #define PAD_SPI_RX           SERCOM_RX_PAD_3        // not sure if correct
 
 static const uint8_t SS   = M_PA18 ;                  // not sure if correct
