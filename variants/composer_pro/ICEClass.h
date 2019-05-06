@@ -32,16 +32,19 @@ public:
     uint16_t  ice_clk   = ICE_CLK;
 
     void initSPI(){
+     // https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports/creating-a-new-spi
+     // https://github.com/arduino/ArduinoCore-samd/blob/master/cores/arduino/SERCOM.h
+
         pinMode (ice_cs, OUTPUT);
         pinMode (ice_clk, OUTPUT);
         pinMode (ice_mosi, OUTPUT);
         pinMode (ice_miso, INPUT_PULLUP);
-        SPIfpga = new SPIClass (&sercom5,  ice_miso,  ice_clk,  ice_mosi,  SPI_PAD_3_SCK_1,  SERCOM_RX_PAD_0);
+        SPIfpga = new SPIClass (&sercom1,  ice_miso,  ice_clk,  ice_mosi,  SPI_PAD_0_SCK_1,  SERCOM_RX_PAD_3);
         SPIfpga->begin();
         // remux Arduino Pins for Hardware SPI
-        pinPeripheral(ice_miso,   PIO_SERCOM_ALT);
-        pinPeripheral(ice_mosi,   PIO_SERCOM_ALT);
-        pinPeripheral(ice_clk,    PIO_SERCOM_ALT);
+        pinPeripheral(ice_miso,   PIO_SERCOM);
+        pinPeripheral(ice_mosi,   PIO_SERCOM);
+        pinPeripheral(ice_clk,    PIO_SERCOM);
     };
 
     /*
