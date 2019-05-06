@@ -60,7 +60,7 @@ extern "C"
 #define PINS_COUNT           (128u)
 #define NUM_DIGITAL_PINS     (20u)      // TO DO !! set to correct value
 #define NUM_ANALOG_INPUTS    (0u)       // TO DO !! set to correct value
-#define NUM_ANALOG_OUTPUTS   (0u)       // TO DO !! set to correct value
+#define NUM_ANALOG_OUTPUTS   (1u)       // TO DO !! set to correct value
 //#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)     // TO DO !! set to correct value
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
@@ -424,7 +424,6 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 
 
 
-
 // Analog pins
 
 #define PIN_A0               (S_PA10)
@@ -433,15 +432,6 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define PIN_A3               (S_PB08)
 //#define PIN_A4               (PIN_A0 + 4)
 //#define PIN_A5               (PIN_A0 + 5)
-//#define PIN_A6               (PIN_A0 + 6)
-//#define PIN_A7               (PIN_A0 + 7)
-//#define PIN_A8               (PIN_A0 + 8)
-//#define PIN_A9               (PIN_A0 + 9)
-//#define PIN_A10              (PIN_A0 + 10)
-    
-//#define PIN_DAC0             34
-//#define PIN_DAC1             35
-
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
@@ -449,23 +439,22 @@ static const uint8_t A2  = PIN_A2;
 static const uint8_t A3  = PIN_A3;
 //static const uint8_t A4  = PIN_A4;
 //static const uint8_t A5  = PIN_A5;
-//static const uint8_t A6  = PIN_A6 ;
-//static const uint8_t A7  = PIN_A7 ;
-//static const uint8_t A8  = PIN_A8 ;
-//static const uint8_t A9  = PIN_A9 ;
-//static const uint8_t A10 = PIN_A10 ;
+
+//#define PIN_DAC0             S_PA02
+//#define PIN_DAC1             35
 
 //static const uint8_t DAC0 = PIN_DAC0;
 //static const uint8_t DAC1 = PIN_DAC1;
 
 #define ADC_RESOLUTION		12
 
+
+
 /*
 // Other pins
 #define PIN_ATN              (26ul)
 static const uint8_t ATN = PIN_ATN;
  /*
-
 
 
 
