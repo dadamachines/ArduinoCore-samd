@@ -2,8 +2,8 @@
 #include <SPI.h>
 #include <wiring_private.h> // pinPeripheral() function
 
-#ifndef _ICECLASS_DOPPLER_
-#define _ICECLASS_DOPPLER_
+#ifndef _ICECLASS_COMPOSER_PRO_
+#define _ICECLASS_COMPOSER_PRO_
 
 // give subclass chance to modify the BITSTREAM
 #ifndef BITSTREAM
@@ -67,9 +67,11 @@ public:
      };
      */
 
+
     uint16_t sendSPI16(uint16_t  data) {
         return sendSPI((data >> 8) & 0xff , data & 0xff );
     }
+
 
     // send 2 bytes to FPGA
     uint16_t sendSPI(uint8_t  adr , uint8_t  txdata) {
@@ -89,6 +91,45 @@ public:
         digitalWrite(ice_cs, HIGH);
         return rxdata1 << 8 | rxdata2 & 0xff ;
     };
+
+
+
+
+    uint32_t sendSPI16_rx32(uint16_t  data) {
+        return sendSPI_3Bytes( (data >> 16) & 0xff , (data >> 8) & 0xff, data & 0xff  );
+    }
+
+    // send 3 bytes to FPGA
+    uint32_t sendSPI_3Bytes(uint8_t  adr , uint8_t  txdata1, uint8_t  txdata2) {
+        digitalWrite(ice_cs, LOW);
+        SPIfpga->beginTransaction(SPISettings(SPI_FPGA_SPEED, MSBFIRST, SPI_MODE0));
+        uint8_t  rxdata1 = SPIfpga->transfer(adr);
+        uint8_t  rxdata2 = SPIfpga->transfer(txdata1);
+        uint8_t  rxdata3 = SPIfpga->transfer(txdata2);
+        digitalWrite(ice_cs, HIGH);
+        return rxdata1 << 16 | rxdata2 << 8 | rxdata3 & 0xff ;
+    };
+
+    uint32_t sendSPI32_rx32(uint16_t  data) {
+        return sendSPI_4Bytes((data >> 8) & 0xff , data & 0xff );
+    }
+
+    //uint32_t sendSPI32_rx32(uint16_t  data) {
+    //    return sendSPI_4Bytes( (data >> 16) & 0xff , (data >> 8) & 0xff, data & 0xff  );
+    //}
+
+    // send 4 bytes to FPGA
+    uint32_t sendSPI_4Bytes(uint8_t  adr , uint8_t  txdata) {
+        digitalWrite(ice_cs, LOW);
+        SPIfpga->beginTransaction(SPISettings(SPI_FPGA_SPEED, MSBFIRST, SPI_MODE0));
+        uint8_t  rxdata4 = SPIfpga->transfer(0x00);
+        uint8_t  rxdata1 = SPIfpga->transfer(0x00);
+        uint8_t  rxdata2 = SPIfpga->transfer(adr);
+        uint8_t  rxdata3 = SPIfpga->transfer(txdata);
+        digitalWrite(ice_cs, HIGH);
+        return rxdata4 << 24 |  rxdata1 << 16 | rxdata2 << 8 | rxdata3 & 0xff ;
+    };
+
 
     /*
      //
@@ -159,7 +200,7 @@ public:
         pinMode(ICE_CLK,     INPUT_PULLUP);
         pinMode(ICE_CDONE,   INPUT_PULLUP);
         pinMode(ICE_MOSI,    INPUT_PULLUP);
-        pinMode(ICE_CRESET,  OUTPUT);
+        pinMode(ICE_RESET,  OUTPUT);
         //pinMode(ICE_CS,      OUTPUT);
         digitalWrite(ICE_CS, HIGH);
     };
@@ -175,11 +216,11 @@ public:
 
         pinMode(ICE_CLK,     OUTPUT);
         pinMode(ICE_MOSI,    OUTPUT);
-        pinMode(ICE_CRESET,  OUTPUT);
+        pinMode(ICE_RESET,  OUTPUT);
         pinMode(ICE_CS,      OUTPUT);
 
         // enable reset
-        digitalWrite(ICE_CRESET, LOW);
+        digitalWrite(ICE_RESET, LOW);
 
         // start clock high
         digitalWrite(ICE_CLK, HIGH);
@@ -189,7 +230,7 @@ public:
         delay(10);
 
         // release reset
-        digitalWrite(ICE_CRESET, HIGH);
+        digitalWrite(ICE_RESET, HIGH);
         delay(100);     // TODO: check time! for Waiting FPGA is self init!
 
         // Begin HardwareSPI
@@ -220,11 +261,11 @@ public:
 
         pinMode(ICE_CLK,     OUTPUT);
         pinMode(ICE_MOSI,    OUTPUT);
-        pinMode(ICE_CRESET,  OUTPUT);
+        pinMode(ICE_RESET,  OUTPUT);
         pinMode(ICE_CS,      OUTPUT);
 
         // enable reset
-        digitalWrite(ICE_CRESET, LOW);
+        digitalWrite(ICE_RESET, LOW);
 
         // start clock high
         digitalWrite(ICE_CLK, HIGH);
@@ -236,7 +277,7 @@ public:
         delay(10);
 
         // release reset
-        digitalWrite(ICE_CRESET, HIGH);
+        digitalWrite(ICE_RESET, HIGH);
         delay(100);
 
         for (int i = 0; i < 8; i++) {
@@ -293,4 +334,4 @@ public:
 
 
 
-#endif /* _ICECLASS_DOPPLER_M4_ */
+#endif /* _ICECLASS_COMPOSER_PRO_ */
