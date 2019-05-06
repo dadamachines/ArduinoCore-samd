@@ -4,10 +4,10 @@
 bootloaders/*/build/
 bootloaders/*
 !bootloaders/doppler
-!bootloaders/composer-pro
+!bootloaders/composer_pro
 
 variants/*
 !variants/doppler
-!variants/composer-pro
+!variants/composer_pro
 
 *~

@@ -81,7 +81,7 @@ composer_pro.build.variant_system_lib=
 composer_pro.build.vid=0x16D0
 composer_pro.build.pid=0x0E3B
 composer_pro.bootloader.tool=openocd
-composer_pro.bootloader.file=composer-pro/bootloader-doppler-pro.bin
+composer_pro.bootloader.file=composer_pro/bootloader-doppler-pro.bin
 composer_pro.compiler.arm.cmsis.ldflags="-L{build.variant.path}" -larm_cortexM4lf_math -mfloat-abi=hard -mfpu=fpv4-sp-d16
 composer_pro.menu.cache.on=Enabled
 composer_pro.menu.cache.on.build.cache_flags=-DENABLE_CACHE
