@@ -64,8 +64,8 @@ const PinDescription g_APinDescription[]=
     // MASTER SAM PORT B
     { PORTB,   0, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0 },         // ---
     { PORTB,   1, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 },      // USB_C PD INT
-    { PORTB,   2, PIO_SERCOM_ALT, PIN_ATTR_NONE, ADC_Channel14, TCC2_CH2, NOT_ON_TIMER, EXTERNAL_INT_2 },               // USB_C PD SDA. ---> not sure if time is correct
-    { PORTB,   3, PIO_SERCOM_ALT, PIN_ATTR_NONE, ADC_Channel15, NOT_ON_PWM, TC4_CH0, EXTERNAL_INT_3  },      // USB_C PD SCL
+    { PORTB,   2, PIO_SERCOM_ALT, PIN_ATTR_NONE, ADC_Channel14, TCC2_CH2, NOT_ON_TIMER, EXTERNAL_INT_2 },         // USB_C PD SDA. ---> not sure if time is correct
+    { PORTB,   3, PIO_SERCOM_ALT, PIN_ATTR_NONE, ADC_Channel15, NOT_ON_PWM, TC4_CH0, EXTERNAL_INT_3  },           // USB_C PD SCL
     { PORTB,   4, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE },      // ---
     { PORTB,   5, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_5  },        // ---
     { PORTB,   6, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_6  },     // FOOTSWITCH 1
