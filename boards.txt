@@ -71,12 +71,12 @@ composer_pro.build.f_cpu=120000000L
 composer_pro.build.usb_product="composer pro"
 composer_pro.build.usb_manufacturer="dadamachines"
 composer_pro.build.usb_power=20
-composer_pro.build.board=composer pro
+composer_pro.build.board=composer_pro
 composer_pro.build.core=arduino
-composer_pro.build.extra_flags=-D__SAMD51J19A__ -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4  -mfloat-abi=hard -mfpu=fpv4-sp-d16
+composer_pro.build.extra_flags=-D__SAMD51J19A__ -D__SAMD51__ {build.usb_flags} -D__FPU_PRESENT -DARM_MATH_CM4  -mfloat-abi=hard
 composer_pro.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
 composer_pro.build.openocdscript=openocd_scripts/arduino_zero.cfg
-composer_pro.build.variant=composer pro
+composer_pro.build.variant=composer_pro
 composer_pro.build.variant_system_lib=
 composer_pro.build.vid=0x16D0
 composer_pro.build.pid=0x0E3B
