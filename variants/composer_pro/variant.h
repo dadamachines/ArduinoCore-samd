@@ -359,7 +359,7 @@ extern "C"
  */
 #define PIN_USB_DM        M_PA24    // better levea this out?
 #define PIN_USB_DP        M_PA25
-//#define PIN_USB_HOST_ENABLE (27ul).   // hmm, haben wir enable pin?  +  weiteres define für slave usb
+#define PIN_USB_HOST_ENABLE (M_PA28)  // hmm, wir haben keinen ENABLE PIN!?  habe M_PA28 als Dummy genommen
 
 #define PIN_USB_DM_M      M_PA24
 #define PIN_USB_DP_S      M_PA25
