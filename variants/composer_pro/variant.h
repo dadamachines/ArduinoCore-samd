@@ -279,7 +279,7 @@ extern "C"
 // BUS_I2C_2 to TCA9555 on MatrixPCB and Power Distribution Chip for USB C
 #define BUS_I2C_2_SDA_M   M_PB02     // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
 #define BUS_I2C_2_SCL_M   M_PB03     // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
-#define BUS_I2C_2_INT_TCA_M   M_PB01     // BUS_I2C_2_INT  MatrixTCA955
+#define BUS_I2C_2_INT_TCA_M   M_PB00     // BUS_I2C_2_INT  MatrixTCA955
 #define BUS_I2C_2_INT_USB_M   M_PB01     // BUS_I2C_2_INT  USB_C PD
 
 
