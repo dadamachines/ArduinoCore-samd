@@ -27,10 +27,10 @@
  *----------------------------------------------------------------------------*/
 
 /** Frequency of the board main oscillator */
-#define VARIANT_MAINOSC   (32768ul)
+#define VARIANT_MAINOSC		(32768ul)
 
 /** Master clock frequency */
-#define VARIANT_MCK       (120000000ul)
+#define VARIANT_MCK			  (120000000ul)
 
 #define VARIANT_GCLK0_FREQ (120000000UL)
 #define VARIANT_GCLK1_FREQ (48000000UL)
@@ -59,9 +59,9 @@ extern "C"
 // Number of pins defined in PinDescription array
 #define PINS_COUNT           (128u)
 #define NUM_DIGITAL_PINS     (20u)      // TO DO !! set to correct value
-#define NUM_ANALOG_INPUTS    (8u)       // TO DO !! set to correct value
-#define NUM_ANALOG_OUTPUTS   (2u)       // TO DO !! set to correct value
-#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)     // TO DO !! set to correct value
+#define NUM_ANALOG_INPUTS    (0u)       // TO DO !! set to correct value
+#define NUM_ANALOG_OUTPUTS   (0u)       // TO DO !! set to correct value
+//#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + PIN_A0 : -1)     // TO DO !! set to correct value
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
 #define digitalPinToBitMask(P)     ( 1 << g_APinDescription[P].ulPin )
@@ -80,38 +80,38 @@ extern "C"
  */
 // #define digitalPinToTimer(P)
 
-
+    
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///// MASTER SAMD PINS //////////////////////////////////////////////////////////////////////
-
+    
 #define M_PA00      0
 #define M_PA01      1
 #define M_PA02      2
 #define M_PA03      3           // AREF
-#define M_PA04      4           // BUS_I2C_1_SDA
-#define M_PA05      5           // BUS_I2C_1_SCL
+#define M_PA04      4           // BUS_I2C_1_SDA 
+#define M_PA05      5           // BUS_I2C_1_SCL 
 #define M_PA06      6
 #define M_PA07      7           // WS28 RGB LEDs
-#define M_PA08      8           // FLASH_SD QSPI_D0
-#define M_PA09      9           // FLASH_SD QSPI_D1
-#define M_PA10     10           // FLASH_SD QSPI_D2
-#define M_PA11     11           // FLASH_SD QSPI_D3
+#define M_PA08      8           // FLASH_SD QSPI_D0 
+#define M_PA09      9           // FLASH_SD QSPI_D1 
+#define M_PA10     10           // FLASH_SD QSPI_D2 
+#define M_PA11     11           // FLASH_SD QSPI_D3 
 #define M_PA12     12           // BUS SPI > Compute Module MOSI
 #define M_PA13     13           // BUS SPI > Compute Module SKC
 #define M_PA14     14           // BUS SPI > Compute Module CS
 #define M_PA15     15           // BUS SPI > Compute Module MISO
-#define M_PA16     16           // BUS SPI > ICE 40 MOSI
+#define M_PA16     16           // BUS SPI > ICE 40 MOSI 
 #define M_PA17     17           // BUS SPI > ICE 40 SCK
 #define M_PA18     18           // BUS SPI > ICE 40 CS
 #define M_PA19     19           // BUS SPI > ICE 40 MISO
 #define M_PA20     20
 #define M_PA21     21
 #define M_PA22     22
-#define M_PA23     23
+#define M_PA23     23           
 #define M_PA24     24           // USB_C IN DATA D_N
 #define M_PA25     25           // USB_C IN DATA D_P
 #define M_PA26     26
-#define M_PA27     27           // RESET SLAVE SAMD
+#define M_PA27     27           // RESET SLAVE SAMD 
 #define M_PA28     28
 #define M_PA29     29
 #define M_PA30     30           // SWCLK
@@ -176,8 +176,8 @@ extern "C"
 #define S_PA19     (19+64)      // SPI_OLED MISO
 #define S_PA20     (20+64)      // PA20_TOUCH     Y8
 #define S_PA21     (21+64)      // PA21_TOUCH     Y7
-#define S_PA22     (22+64)      // I2C_2_SDA
-#define S_PA23     (23+64)      // I2C_2_SCL
+#define S_PA22     (22+64)      // I2C_2_SDA 
+#define S_PA23     (23+64)      // I2C_2_SCL 
 #define S_PA24     (24+64)      // USB_D_N
 #define S_PA25     (25+64)      // USB_D_P
 #define S_PA26     (26+64)
@@ -231,10 +231,10 @@ extern "C"
 // QSPI Pins
 #define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK
 #define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS
-#define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0
-#define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1
-#define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2
-#define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3
+#define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0 
+#define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1 
+#define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2 
+#define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3 
 //#define PIN_QSPI_DE   M_PB12     (12+32)      // FLASH_SD QSPI_DE.    ??????
 
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
@@ -247,8 +247,8 @@ extern "C"
 #define COMPUTEMODULE_SPI_MISO_M    M_PA15          // BUS SPI > Compute Module MISO
 
 
-// FPGA internal SPI Bus
-#define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI
+// FPGA internal SPI Bus    
+#define ICE_MOSI   M_PA16   // BUS SPI > ICE 40 MOSI 
 #define ICE_CLK    M_PA17   // BUS SPI > ICE 40 SCK
 #define ICE_CS     M_PA18   // BUS SPI > ICE 40 CS
 #define ICE_MISO   M_PA19   // BUS SPI > ICE 40 MISO
@@ -261,7 +261,7 @@ extern "C"
 
 
 // SLAVE PROGRAMMER (from Master SAMD)
-#define RESET_SLAVE_SAMD_M   M_PA27     // RESET SLAVE SAMD
+#define RESET_SLAVE_SAMD_M   M_PA27     // RESET SLAVE SAMD 
 #define SWDIO_SLAVE_SAMD_M   M_PB22     // SWDIO from SLAVE SAMD
 #define SWCLK_SLAVE_SAMD_M   M_PB23     // SWCLK from SLAVE SAMD
 
@@ -270,7 +270,7 @@ extern "C"
 #define FOOTSWITCH_1  M_PB06     // FOOTSWITCH 1
 #define FOOTSWITCH_2  M_PB07     // FOOTSWITCH 2
 
-// Wire 1
+// Wire 1 
 #define BUS_I2C_1_SDA_M   M_PA04    // BUS_I2C_1_SDA  MASTER
 #define BUS_I2C_1_SCL_M   M_PA05    // BUS_I2C_1_SCL  MASTER
 
@@ -347,9 +347,9 @@ extern "C"
 #define PIN_LED           M_PB17      //  better leave this out?
 #define LED_BUILTIN       M_PB17
 
-#define PIN_LED_M         M_PB17
+#define PIN_LED_M         M_PB17    
 #define LED_BUILTIN_M     M_PB17
-#define PIN_LED_S         S_PB17
+#define PIN_LED_S         S_PB17    
 #define LED_BUILTIN_S     S_PB17
 
 
@@ -426,47 +426,47 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 
 
 
-/*
- * Analog pins
 
-#define PIN_A0               (10ul)
-#define PIN_A1               (PIN_A0 + 1)
-#define PIN_A2               (PIN_A0 + 2)
-#define PIN_A3               (PIN_A0 + 3)
-#define PIN_A4               (PIN_A0 + 4)
-#define PIN_A5               (PIN_A0 + 5)
-#define PIN_A6               (PIN_A0 + 6)
-#define PIN_A7               (PIN_A0 + 7)
-#define PIN_A8               (PIN_A0 + 8)
-#define PIN_A9               (PIN_A0 + 9)
-#define PIN_A10              (PIN_A0 + 10)
+// Analog pins
 
-#define PIN_DAC0             34
-#define PIN_DAC1             35
+#define PIN_A0               (S_PA10)
+#define PIN_A1               (S_PA07)
+#define PIN_A2               (S_PA06)
+#define PIN_A3               (S_PB08)
+//#define PIN_A4               (PIN_A0 + 4)
+//#define PIN_A5               (PIN_A0 + 5)
+//#define PIN_A6               (PIN_A0 + 6)
+//#define PIN_A7               (PIN_A0 + 7)
+//#define PIN_A8               (PIN_A0 + 8)
+//#define PIN_A9               (PIN_A0 + 9)
+//#define PIN_A10              (PIN_A0 + 10)
+    
+//#define PIN_DAC0             34
+//#define PIN_DAC1             35
 
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
 static const uint8_t A3  = PIN_A3;
-static const uint8_t A4  = PIN_A4;
-static const uint8_t A5  = PIN_A5;
-static const uint8_t A6  = PIN_A6 ;
-static const uint8_t A7  = PIN_A7 ;
-static const uint8_t A8  = PIN_A8 ;
-static const uint8_t A9  = PIN_A9 ;
-static const uint8_t A10 = PIN_A10 ;
+//static const uint8_t A4  = PIN_A4;
+//static const uint8_t A5  = PIN_A5;
+//static const uint8_t A6  = PIN_A6 ;
+//static const uint8_t A7  = PIN_A7 ;
+//static const uint8_t A8  = PIN_A8 ;
+//static const uint8_t A9  = PIN_A9 ;
+//static const uint8_t A10 = PIN_A10 ;
 
-static const uint8_t DAC0 = PIN_DAC0;
-static const uint8_t DAC1 = PIN_DAC1;
+//static const uint8_t DAC0 = PIN_DAC0;
+//static const uint8_t DAC1 = PIN_DAC1;
 
-#define ADC_RESOLUTION    12
+#define ADC_RESOLUTION		12
 
-
+/*
 // Other pins
 #define PIN_ATN              (26ul)
 static const uint8_t ATN = PIN_ATN;
- */
+ /*
 
 
 
@@ -482,7 +482,7 @@ static const uint8_t ATN = PIN_ATN;
 //
 //void dacInit();
 //void dacWrite(uint16_t  left ,uint16_t  right);
-
+    
 
 
 
@@ -497,9 +497,9 @@ static const uint8_t ATN = PIN_ATN;
 
 #ifdef __cplusplus
 
-/*  =========================
- *  ===== SERCOM DEFINITION
- *  =========================
+/*	=========================
+ *	===== SERCOM DEFINITION
+ *	=========================
 */
 extern SERCOM sercom0;
 extern SERCOM sercom1;
