@@ -374,15 +374,15 @@ extern "C"
  /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+//#define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         M_PA04 
-#define PIN_WIRE_SCL         M_PA05
-#define PERIPH_WIRE          sercom0
-#define WIRE_IT_HANDLER      SERCOM0_Handler
+//#define PIN_WIRE_SDA         M_PA04 
+//#define PIN_WIRE_SCL         M_PA05
+//#define PERIPH_WIRE          sercom0
+//#define WIRE_IT_HANDLER      SERCOM0_Handler
 
-static const uint8_t SDA = PIN_WIRE_SDA;
-static const uint8_t SCL = PIN_WIRE_SCL;
+//static const uint8_t SDA = PIN_WIRE_SDA;
+//static const uint8_t SCL = PIN_WIRE_SCL;
 
 
 
