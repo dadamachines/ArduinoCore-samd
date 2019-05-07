@@ -334,6 +334,7 @@ extern "C"
 #define BUS_I2C_1_SDA_S   S_PA04    // BUS_I2C_1_SDA  Slave
 #define BUS_I2C_1_SCL_S   S_PA05    // BUS_I2C_1_SCL  Slave
 
+// Wire 2
 #define BUS_I2C_2_SDA_S   S_PA22    // I2C_2_SDA    to Touchstrip TCA9555
 #define BUS_I2C_2_SCL_S   S_PA23    // I2C_2_SCL    to Touchstrip TCA9555
 #define BUS_I2C_2_INT_S   S_PB09    // TCA9555 TOUCHStrip LEDs INT Pin. NOT NEEDED
@@ -344,8 +345,7 @@ extern "C"
 //////////////////////////////////////////////////////////////////////////////////
 
 // LEDs
-
-#define PIN_LED           M_PB17      //  better leave this out?
+#define PIN_LED           M_PB17   
 #define LED_BUILTIN       M_PB17
 
 #define PIN_LED_M         M_PB17    
