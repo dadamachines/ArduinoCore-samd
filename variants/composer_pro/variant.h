@@ -277,8 +277,8 @@ extern "C"
 
 
 // BUS_I2C_2 to TCA9555 on MatrixPCB and Power Distribution Chip for USB C
-#define BUS_I2C_2_SDA_M   M_PB02     // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
-#define BUS_I2C_2_SCL_M   M_PB03     // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
+#define BUS_I2C_2_SDA_M       M_PB02     // BUS_I2C_2_SDA  USB_C PD + MatrixTCA955
+#define BUS_I2C_2_SCL_M       M_PB03     // BUS_I2C_2_SCL  USB_C PD + MatrixTCA955
 #define BUS_I2C_2_INT_TCA_M   M_PB00     // BUS_I2C_2_INT  MatrixTCA955
 #define BUS_I2C_2_INT_USB_M   M_PB01     // BUS_I2C_2_INT  USB_C PD
 
@@ -374,15 +374,15 @@ extern "C"
  /*
  * Wire Interfaces
  */
-//#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 1
 
-//#define PIN_WIRE_SDA         M_PA04 
-//#define PIN_WIRE_SCL         M_PA05
-//#define PERIPH_WIRE          sercom0
-//#define WIRE_IT_HANDLER      SERCOM0_Handler
+#define PIN_WIRE_SDA         M_PA04 
+#define PIN_WIRE_SCL         M_PA05
+#define PERIPH_WIRE          sercom0
+#define WIRE_IT_HANDLER      SERCOM0_Handler
 
-//static const uint8_t SDA = PIN_WIRE_SDA;
-//static const uint8_t SCL = PIN_WIRE_SCL;
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
 
 
 
