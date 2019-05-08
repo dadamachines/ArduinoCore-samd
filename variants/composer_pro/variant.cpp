@@ -27,9 +27,10 @@ const PinDescription g_APinDescription[]=
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///// MASTER SAMD PINS //////////////////////////////////////////////////////////////////////
 
+
     // MASTER SAM PORT A
-    { PORTA,   0, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0 },     // --- (Quartz)
-    { PORTA,   1, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 },     // --- (Quartz)
+    { PORTA,   0, PIO_SERCOM_ALT, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH1, TC2_CH1, EXTERNAL_INT_0 },     // --- (Quartz)
+    { PORTA,   1, PIO_SERCOM_ALT, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH0, TC2_CH0, EXTERNAL_INT_1 },     // --- (Quartz)
     { PORTA,   2, PIO_ANALOG,     PIN_ATTR_ANALOG,  DAC_Channel0,   NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },     // --- (DAC OUT)
     { PORTA,   3, PIO_ANALOG,     PIN_ATTR_ANALOG,  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },     // AREF
     { PORTA,   4, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4 },     // BUS_I2C_SDA    /SERCOM_ALT_0_P0
@@ -47,7 +48,7 @@ const PinDescription g_APinDescription[]=
     { PORTA,  16, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_F), No_ADC_Channel, TCC1_CH0, NOT_ON_TIMER, EXTERNAL_INT_0 },        // BUS SPI > ICE 40 MOSI             /SERCOM_1_P0 
     { PORTA,  17, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_F), No_ADC_Channel, TCC1_CH1, NOT_ON_TIMER, EXTERNAL_INT_1 },        // BUS SPI > ICE 40 SCK              /SERCOM_1_P1 
     { PORTA,  18, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_F), No_ADC_Channel, TCC1_CH2, NOT_ON_TIMER, EXTERNAL_INT_2 },        // BUS SPI > ICE 40 CS               /SERCOM_1_P2 
-    { PORTA,  19, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_F), No_ADC_Channel, TCC1_CH3, NOT_ON_TIMER, EXTERNAL_INT_3 },        // BUS SPI > ICE 40 MISO             /SERCOM_1_P3 
+    { PORTA,  19, PIO_SERCOM,  (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_F), No_ADC_Channel, TCC1_CH3, TC3_CH1, EXTERNAL_INT_3 },        // BUS SPI > ICE 40 MISO             /SERCOM_1_P3 
     { PORTA,  20, PIO_DIGITAL, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_G), No_ADC_Channel, TCC0_CH0, NOT_ON_TIMER, EXTERNAL_INT_4 },     // ---
     { PORTA,  21, PIO_DIGITAL, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_G), No_ADC_Channel, TCC0_CH1, NOT_ON_TIMER, EXTERNAL_INT_5 },     // ---
     { PORTA,  22, PIO_DIGITAL, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM_G), No_ADC_Channel, TCC0_CH2, NOT_ON_TIMER, EXTERNAL_INT_6 },     // ---
@@ -100,8 +101,8 @@ const PinDescription g_APinDescription[]=
 ///// SLAVE SAMD PINS ///////////////////////////////////////////////////////////////////////
 
     // SLAVe SAM PORT A
-    { PORTA,   0, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_0 },    // --- (Quartz)
-    { PORTA,   1, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 },    // --- (Quartz)
+    { PORTA,   0, PIO_SERCOM_ALT, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH1, TC2_CH1, EXTERNAL_INT_0 },     // --- (Quartz)
+    { PORTA,   1, PIO_SERCOM_ALT, PIN_ATTR_PWM_E, No_ADC_Channel, TC2_CH0, TC2_CH0, EXTERNAL_INT_1 },     // --- (Quartz)
     { PORTA,   2, PIO_ANALOG, PIN_ATTR_ANALOG, DAC_Channel0, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 },           // --- (DAC OUT)
     { PORTA,   3, PIO_ANALOG,  PIN_ATTR_ANALOG,  No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_3 },       // AREF
     { PORTA,   4, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_4 },    // BUS_I2C_SDA    /SERCOM_ALT_0_P0
