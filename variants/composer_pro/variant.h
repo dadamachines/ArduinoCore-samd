@@ -374,6 +374,7 @@ extern "C"
  /*
  * Wire Interfaces
  */
+  
 #define WIRE_INTERFACES_COUNT 1
 
 #define PIN_WIRE_SDA         M_PA04 
@@ -401,10 +402,18 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 #define PAD_SPI_TX           SPI_PAD_0_SCK_1     // not sure if correct
 #define PAD_SPI_RX           SERCOM_RX_PAD_3        // not sure if correct
 
+
 static const uint8_t SS   = M_PA18 ;                  // not sure if correct
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
+
+
+
+
+
+
+
 
 
 
