@@ -92,10 +92,10 @@ extern "C"
 #define M_PA05      5           // BUS_I2C_1_SCL 
 #define M_PA06      6
 #define M_PA07      7           // WS28 RGB LEDs
-#define M_PA08      8           // FLASH_SD QSPI_D0 
-#define M_PA09      9           // FLASH_SD QSPI_D1 
-#define M_PA10     10           // FLASH_SD QSPI_D2 
-#define M_PA11     11           // FLASH_SD QSPI_D3 
+#define M_PA08      8           // FLASH_SD QSPI_D0     // MOSI for FRAM+SD
+#define M_PA09      9           // FLASH_SD QSPI_D1     // SCK  for FRAM+SD
+#define M_PA10     10           // FLASH_SD QSPI_D2     // CS/SS for FRAM
+#define M_PA11     11           // FLASH_SD QSPI_D3     // MISO for FRAM+SD
 #define M_PA12     12           // BUS SPI > Compute Module MOSI
 #define M_PA13     13           // BUS SPI > Compute Module SKC
 #define M_PA14     14           // BUS SPI > Compute Module CS
@@ -127,9 +127,9 @@ extern "C"
 #define M_PB07     ( 7+32)      // FOOTSWITCH 2
 #define M_PB08     ( 8+32)      // BUS SPI > ICE 40 CDONE
 #define M_PB09     ( 9+32)      // BUS SPI > ICE 40 RESET
-#define M_PB10     (10+32)      // FLASH_SD QSPI_SCK
-#define M_PB11     (11+32)      // FLASH_SD QSPI_CS
-#define M_PB12     (12+32)      // FLASH_SD QSPI_DE
+#define M_PB10     (10+32)      // FLASH_SD QSPI_SCK    // FRAM
+#define M_PB11     (11+32)      // FLASH_SD QSPI_CS     // CS SD
+#define M_PB12     (12+32)      // FLASH_SD QSPI_DE     // SD enable
 #define M_PB13     (13+32)
 #define M_PB14     (14+32)
 #define M_PB15     (15+32)
@@ -229,15 +229,29 @@ extern "C"
 //////////////////////////////////////////////////////////////////////////////////
 
 // QSPI Pins
-#define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK
-#define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS
-#define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0 
-#define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1 
-#define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2 
-#define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3 
-//#define PIN_QSPI_DE   M_PB12     (12+32)      // FLASH_SD QSPI_DE.    ??????
-
+#define PIN_QSPI_SCK    M_PB10    // FLASH_SD QSPI_SCK    // WP for FRAM enable
+#define PIN_QSPI_CS     M_PB11    // FLASH_SD QSPI_CS     // CS for SD
+#define PIN_QSPI_IO0    M_PA08    // FLASH_SD QSPI_D0     // MOSI  for FRAM+SD
+#define PIN_QSPI_IO1    M_PA09    // FLASH_SD QSPI_D1     // SCK   for FRAM+SD
+#define PIN_QSPI_IO2    M_PA10    // FLASH_SD QSPI_D2     // CS/SS for FRAM
+#define PIN_QSPI_IO3    M_PA11    // FLASH_SD QSPI_D3     // MISO  for FRAM+SD
+#define PIN_QSPI_DE     M_PB12     // FLASH_SD QSPI_DE.   // SD DE for SD
 #define VARIANT_QSPI_BAUD_DEFAULT 5000000   //TODO: meaningful value for this
+
+
+#define PIN_SD_MOSI     M_PA08
+#define PIN_SD_SCK      M_PA09
+#define PIN_SD_CS       M_PB11
+#define PIN_SD_MISO     M_PA11
+#define PIN_SD_DE       M_PB12      // SD CARD Device enable
+
+#define PIN_FRAM_MOSI   M_PA08
+#define PIN_FRAM_SCK    M_PA09
+#define PIN_FRAM_CS     M_PA10
+#define PIN_FRAM_MISO   M_PA11
+#define PIN_FRAM_DE     M_PB10      // FRAM Device enable
+
+
 
 
 // SPI to Compute Module Pins
